@@ -18,17 +18,21 @@
         <br/>
         <table style="width:100%">
             <tr>
-              <th class="box"> Vorlesung</th>
-              <th class="box"> Datum</th>
+              <th class="box"> Task</th>
               <th class="box"> Link</th>
             </tr>
             <tr>
-                <th class="box"> Vorlesung 1</th>
-                <th class="box"> 06.05.2021</th>
+                <th class="box"> eins</th>
                 <th class="box"> 
-                    <a href:"https://fefifef.github.io/test">Click me</a>
+                    <a href:"https://fefifef.github.io/Vorlesung%201%2006.05.2021/01-eins">Click me</a>
                 </th>
             </tr>
+            <tr>
+                <th class="box"> zwei</th>
+                <th class="box"> 
+                    <a href:"https://fefifef.github.io/Vorlesung%201%2006.05.2021/02-zwei">Click me</a>
+                </th>
+              </tr>
           </table>
 
 
