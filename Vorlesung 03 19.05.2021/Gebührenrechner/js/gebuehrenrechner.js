@@ -1,8 +1,8 @@
 function berechnePreis(netto)
 {
-    let anz = prompt("Bitte gebe die Anzahl der Teilehmer ein");
+    let anzTeilnehmer = prompt("Bitte gebe die Anzahl der Teilehmer ein");
     let brutto = 0;
-    for(let i = 1; i <= anz; i++)
+    for(let i = 1; i <= anzTeilnehmer; i++)
     {
         if(i <= 2)
         {
@@ -27,6 +27,16 @@ function berechnePreis(netto)
             }
         }
     }
-    alert("Die Schulung kostet inkl. MwSt. (für " + anz + " Personen) "+ brutto.toFixed(2) + " Euro");
-}
+    alert("Die Schulung kostet inkl. MwSt. (für " + anzTeilnehmer + " Personen) "+ brutto.toFixed(2) + " Euro");
+    
+    let nachnamen = [];
 
+    for(let i = i; i < anzTeilnehmer; i++)
+    {
+        nachnamen[i] = prompt("Name des " + (i+1) + ". Teilnehmers?","");
+    }
+    for(let n of nachnamen)
+    {
+        console.log(n);
+    }
+}
