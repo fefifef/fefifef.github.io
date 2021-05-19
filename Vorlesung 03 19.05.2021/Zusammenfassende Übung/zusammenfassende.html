@@ -1,81 +1,82 @@
-<style>
-    .item1 
-    { 
-        grid-area: header; 
-        border: solid 1px red;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .item2 
-    { 
-        grid-area: menu;
-        border: solid 1px blue;
-        float: left;
-        margin: 5px;
-    }
-    .item3 
-    { 
-        grid-area: main;
-        margin: 5px;
-        padding: 5px;
-        border: solid 1px green; 
-    }
-    .item5 
-    { 
-        grid-area: footer;
-        margin: 5px;
-        border: solid 1px purple; 
-    }
-    
-    .grid-container {
-      display: grid;
-      grid-template-areas:
-        'header header header header header header'
-        'menu main main main main main'
-        'footer footer footer footer footer footer';
-      grid-gap: 10px;
-    }
-    
-    
-
-    .grid-container > div {
-      background-color: rgba(255, 255, 255, 0.8);
-      text-align: center;
-      padding: 20px 0;
-      font-size: 30px;
-    }
-    </style>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .item1 
+            { 
+                grid-area: header; 
+                border: solid 1px red;
+                border-radius: 10px;
+                text-align: center;
+            }
+            .item2 
+            { 
+                grid-area: menu;
+                border: solid 1px blue;
+                float: left;
+                margin: 5px;
+            }
+            .item3 
+            { 
+                grid-area: main;
+                margin: 5px;
+                padding: 5px;
+                border: solid 1px green; 
+            }
+            .item5 
+            { 
+                grid-area: footer;
+                margin: 5px;
+                border: solid 1px purple; 
+            }
+            
+            .grid-container {
+                display: grid;
+                grid-template-areas:
+                    'header header header header header header'
+                    'menu main main main main main'
+                    'footer footer footer footer footer footer';
+                grid-gap: 10px;
+            }
+            .grid-container > div {
+                background-color: rgba(255, 255, 255, 0.8);
+                text-align: center;
+                padding: 20px 0;
+                font-size: 30px;
+            }
+        </style>
     </head>
+
     <body>
-    <div class="grid-container">
-      <div class="item1">
-        <h1>
-            Notstrom Mustermann GmbH
-        </h1>
-          <br/>
-          Ihr Notstromanlagen-Spezialist in Stuttgart
-      </div>
-      <div class="item2" style="text-align: left;">
-        <li>
-            <a href="https://www.google.de/">google</a>
-          </li>
-          <li>
-            <a href="https://www.bing.de/">bing</a>
-          </li>
-      </div>
-      <div class="item3">
-        <h6>Verkauf - Wartung - Planung - Service</h6>
-        <p style="text-align: justify;">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-          Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-        </p>
-      </div>  
-      <div class="item5">
-        Notstrom Mustermann GmbH, Goethstr. 123, 71234 Stuttgart - <a href="google.de">Imppressum</a>
-      </div>
-    </div>
-    
+        <div class="grid-container">
+        <div class="item1">
+            <h1>
+                Notstrom Mustermann GmbH
+            </h1>
+            <br/>
+            Ihr Notstromanlagen-Spezialist in Stuttgart
+        </div>
+        <div class="item2" style="text-align: left;">
+            <li>
+                <a href="https://www.google.de/">google</a>
+            </li>
+            <li>
+                <a href="https://www.bing.de/">bing</a>
+            </li>
+        </div>
+        <div class="item3">
+            <h6>Verkauf - Wartung - Planung - Service</h6>
+            <p style="text-align: justify;">
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+            </p>
+        </div>  
+        <div class="item5">
+            Notstrom Mustermann GmbH, Goethstr. 123, 71234 Stuttgart - <a href="google.de">Imppressum</a>
+        </div>
+        </div>
+        
     </body>
-    </html>
+</html>
     
