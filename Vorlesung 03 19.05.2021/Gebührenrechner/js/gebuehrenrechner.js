@@ -1,6 +1,6 @@
 function berechnePreis(netto)
 {
-    anz = prompt("Bitte gebe die Anzahl der Teilehmer ein");
+    let anz = prompt("Bitte gebe die Anzahl der Teilehmer ein");
     let brutto = 0;
     for(let i = 1; i <= anz; i++)
     {
