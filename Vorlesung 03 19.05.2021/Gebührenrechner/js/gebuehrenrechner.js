@@ -31,9 +31,9 @@ function berechnePreis(netto)
     
     let nachnamen = [];
 
-    for(let i = i; i < anzTeilnehmer; i++)
+    for(let i = k; k < anzTeilnehmer; k++)
     {
-        nachnamen[i] = prompt("Name des " + (i+1) + ". Teilnehmers?","");
+        nachnamen[k] = prompt("Name des " + (k+1) + ". Teilnehmers?","");
     }
     for(let n of nachnamen)
     {
