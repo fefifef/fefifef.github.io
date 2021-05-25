@@ -34,15 +34,25 @@
         </style>
     </head>
     <body onload="sampleFunction()">
-        <script language="javascript" src="script.js"></script>
+        <script language="javascript">
+            function sampleFunction()
+            {
+                document.getElementById("block_left").innerHTML = "<h1>HALLO</h1>";
+                document.getElementById("block_right").textContent = "<h1>HALLO</h1>";
+                document.getElementById("a").textContent = "<h1>HALLO</h1>";
+            }            
+        </script>
         
-        <div class="grid-container">
+        <div class="grid-container">        
             <div class="item_left" id="block_left">
 
             </div>
             <div class="item_right" id="block_right">
                 
             </div>
+        </div>
+        <div id="a">
+
         </div>
     </body>
 </html>
