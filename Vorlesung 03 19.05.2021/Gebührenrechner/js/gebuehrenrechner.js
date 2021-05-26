@@ -40,16 +40,27 @@ function berechnePreis(netto)
         console.log(n);
     }
 
-    Rechnungsadresse.showDetails();
+    adresseEinlesen();
 
 }
 
+function adresseEinlesen()
+{
+    Rechnungsadresse.firmenname = prompt("Firmenname");
+    Rechnungsadresse.str = prompt("Straße");
+    Rechnungsadresse.plz = prompt("PLZ");
+    Rechnungsadresse.ort = prompt("Ort");
+
+    Rechnungsadresse.showDetails();
+}
+
+
 let Rechnungsadresse = 
 {
-    firmenname: "Fa. Mustermann",
-    str: "Musterstr. 36",
-    plz: 12345,
-    ort: "Musterort",
+    firmenname: "",
+    str: "",
+    plz: 0,
+    ort: "",
     showDetails: function()
     {
         console.log("Firmenname: " + this.firmenname);
