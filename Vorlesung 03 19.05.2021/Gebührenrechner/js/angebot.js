@@ -59,11 +59,11 @@ function init()
     //nextVersion
     document.getElementById("bild").addEventListener("click", function(e) {wechsleBild(e)});
     document.getElementById("bild").addEventListener("mouseover", function(e) {wechsleBild(e)});
-    document.getElementById("bild").addEventListener("mouseout", function(e) {wechsleBild(e)});
+    document.getElementById("bild").addEventListener("mouseout", function(e) {document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg")});
 }
 document.addEventListener("DOMContentLoaded", init);
 
-function wechsleBild()
+/*function wechsleBild()
 {
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
     {
@@ -73,7 +73,7 @@ function wechsleBild()
     {
         document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
     }
-}
+}*/
 function wechsleBild(e)
 {
     console.log(e);
