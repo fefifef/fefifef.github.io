@@ -36,6 +36,7 @@ function wertAnzeigen()
     }
 }
 
+//Möglichkeit 1 --> Problem Touch
 function mouseOverjpg()
 {
     document.getElementById("bild").setAttribute("src", "img/notstromaggregat-rueckseite.jpg");
@@ -43,4 +44,17 @@ function mouseOverjpg()
 function mouseoutjpg()
 {
     document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
+}
+
+//Möglichkeit 2 --> Touch Problem nicht mehr
+function wechsleBild()
+{
+    if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
+    {
+        document.getElementById("bild").setAttribute("src", "img/notstromaggregat-rueckseite.jpg");
+    }
+    else
+    {
+        document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
+    }
 }
