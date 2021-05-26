@@ -99,6 +99,7 @@ function zeigeKreis()
     {
         document.getElementById("kreis").style.visibility = "visible";
         gedrueckt = 1;
+        document.getElementById("lupe").style.opacity = 0.3;
         return;
     }
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg" && gedrueckt == 1)
@@ -111,5 +112,6 @@ function zeigeKreis()
 function kreisausblenden()
 {
     document.getElementById("kreis").style.visibility = "hidden";
+    document.getElementById("lupe").style.opacity = 1.0;
     gedrueckt = 0;
 }
