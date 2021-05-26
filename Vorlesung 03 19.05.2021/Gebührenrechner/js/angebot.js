@@ -1,5 +1,3 @@
-let wahl = 0;
-
 function onClickSonderpreis()
 {
     let p = document.getElementById("preis");
@@ -10,7 +8,7 @@ function onClickSonderpreis()
     g.childNodes[0].style.color = "green";
 }
 
-
+let wahl = 0;
 function wertAnzeigen()
 {
     let preis = document.getElementById("preis");
@@ -36,7 +34,8 @@ function wertAnzeigen()
     }
 }
 
-//Möglichkeit 1 --> Problem Touch
+
+
 function mouseOverjpg()
 {
     document.getElementById("bild").setAttribute("src", "img/notstromaggregat-rueckseite.jpg");
@@ -46,9 +45,38 @@ function mouseoutjpg()
     document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
 }
 
-//Möglichkeit 2 --> Touch Problem nicht mehr
+function init()
+{
+    console.log("DOM geladen!");
+    //-->Möglichkeit 1 --> Problem Touch <-- <--
+    //document.getElementById("bild").addEventListener("mouseover", mouseOverjpg());
+    //document.getElementById("bild").addEventListener("mouseout", mouseoutjpg());
+    //-->Möglichkeit 2<--
+    //document.getElementById("bild").addEventListener("click", wechsleBild);
+    //document.getElementById("bild").addEventListener("mouseover", wechsleBild);
+    //document.getElementById("bild").addEventListener("mouseout", wechsleBild);
+
+    //nextVersion
+    document.getElementById("bild").addEventListener("click", function(e) {wechsleBild(e)});
+    document.getElementById("bild").addEventListener("mouseover", function(e) {wechsleBild(e)});
+    document.getElementById("bild").addEventListener("mouseout", function(e) {wechsleBild(e)});
+}
+document.addEventListener("DOMContentLoaded", init);
+
 function wechsleBild()
 {
+    if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
+    {
+        document.getElementById("bild").setAttribute("src", "img/notstromaggregat-rueckseite.jpg");
+    }
+    else
+    {
+        document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
+    }
+}
+function wechsleBild(e)
+{
+    console.log(e);
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
     {
         document.getElementById("bild").setAttribute("src", "img/notstromaggregat-rueckseite.jpg");
