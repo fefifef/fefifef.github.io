@@ -1,172 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf8">
         <style>
-            #left
+            .item_left
             {
-                width: 150px;
+                grid-area: left; 
+                border: solid 1px black;
+                border-radius: 10px;
                 float: left;
+                width: 100%;
             }
-            #left .box
+            .item_right
             {
-                border: solid #555 2px;
+                grid-area: right; 
+                border: solid 1px black;
                 border-radius: 10px;
-                padding: 10px 20px;
-                width: 200px;
-                text-align: center;
+                width: 100%;
             }
-            #right
+            .grid-container 
             {
-                margin-left: 200px;
+                display: grid;
+                grid-template-areas:
+                    'left right';
+                grid-gap: 10px;
             }
-            #right .box
+            .grid-container > div 
             {
-                border: solid #555 2px;
-                border-radius: 10px;
-                padding: 10px 20px;
-                width: 200px;
-                height: 7.5vh;
-                text-align: center;
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px 0;
+                font-size: 30px;
             }
         </style>
     </head>
-    <body>
-        <h1>DHBW Webengineering 1</h1>
-        <br/>
-        <br/>
-        <div id="left">
-            <table style="width:100%">
-                <tr>
-                    <th>
-                        <div style="width: 100%" class="box">
-                            Kopieren kann jeder mach es lieber selber!!!
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <div style="width: 100%" class="box">
-                            <a href="https://github.com/fefifef/fefifef.github.io"> github Repositories</a>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <div style="width: 100%;" class="box">
-                            Bei fragen mir einfach schreriben oder eine Diskussion im Repositorie anfangen :D
-                        </div>
-                    </th>
-                    
-                </tr>
-                <tr>
-                    <th>
-                        <div style="width: 100%;" class="box">
-                            Darf in der Vorlesung gezeigt werden <br/>
-                            Ist sogesehen annonym
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <div style="width: 100%" class="box">
-                            Work in progress by STK
-                        </div>
-                    </th>                   
-                </tr>
-            </table>
-        </div>
-
-        <div id="right">
-            <table style="width:100%">
-                <tr>
-                  <th class="box"> Vorlesung</th>
-                  <th class="box"> Datum</th>
-                  <th class="box"> Link</th>
-                </tr>
-                <!-- ######################### Vorlesung 1 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 1</th>
-                    <th class="box"> 06.05.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2001%2006.05.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 2 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 2</th>
-                    <th class="box"> 11.05.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2002%2011.05.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 3 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 3</th>
-                    <th class="box"> 19.05.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2003%2019.05.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 4 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 4</th>
-                    <th class="box"> 26.05.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2004%2026.05.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 5 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 5</th>
-                    <th class="box"> 02.06.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2005%2002.06.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 6 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 6</th>
-                    <th class="box"> 09.06.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2006%2009.06.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 7 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 7</th>
-                    <th class="box"> 16.06.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2007%2016.06.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 8 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 8</th>
-                    <th class="box"> 29.06.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2008%2029.06.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 9 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 9</th>
-                    <th class="box"> 06.07.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2009%2006.07.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-                <!-- ######################### Vorlesung 10 #########################-->
-                <tr>
-                    <th class="box"> Vorlesung 10</th>
-                    <th class="box"> 13.07.2021</th>
-                    <th class="box"> 
-                        <a href="Vorlesung%2010%2013.07.2021/index.html">Click me</a>
-                    </th>
-                </tr>
-            </table>
-        </div>
+    <body onload="sampleFunction()">
+        <script language="javascript" src="script.js"></script>
         
-
-        
+        <div class="grid-container">
+            <div class="item_left" id="block_left">
+            <?php
+                $zitate = file_get_contents('zitate.txt');
+                echo $zitate;
+            ?>
+            </div>
+            <div class="item_right" id="block_right">
+                
+            </div>
+        </div>
     </body>
 </html>
