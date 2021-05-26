@@ -38,10 +38,7 @@
         
         <div class="grid-container">
             <div class="item_left" id="block_left">
-            <?php
-                $zitate = file_get_contents('zitate.txt');
-                echo $zitate;
-            ?>
+                HALLO
             </div>
             <div class="item_right" id="block_right">
                 
