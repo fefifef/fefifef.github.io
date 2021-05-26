@@ -35,3 +35,12 @@ function wertAnzeigen()
         wahl = 0;
     }
 }
+
+function mouseOverjpg()
+{
+    document.getElementById("bild").setAttribute("src", "img/notstromaggregat-rueckseite.jpg");
+}
+function mouseoutjpg()
+{
+    document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
+}
