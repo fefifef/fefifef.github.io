@@ -93,6 +93,7 @@ function wechsleBild(e)
 }
 
 let gedrueckt = 0;
+
 function zeigeKreis()
 {
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg" && gedrueckt == 0)
