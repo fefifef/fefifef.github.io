@@ -1,2 +1,7 @@
 Gebührenrechner 
     - Weiterarbeitung aus der Vorlesung 3. Dort auch gespeichert.
+
+Übung (3)
+    - Mit Responsive Webdesign
+        - Bei Desktop so wie jetzt
+        - Bei mobilen Endgeräten für eine bestimmte zeit
