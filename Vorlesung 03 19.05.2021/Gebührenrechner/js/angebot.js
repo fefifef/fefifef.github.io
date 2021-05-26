@@ -17,6 +17,7 @@ function wertAnzeigen()
     let txt = document.getElementById("preisbereich").childNodes[3];
     let button = document.getElementById("preisbereich").childNodes[4];
 
+    //Andere Möglichkeit <=> if(button.textContent = "zeige Nettopreis") ...[Das gleiche nur ohne wahl]
     if(wahl == 0)
     {
         preis.innerHTML = "<i>"+(preis.textContent / 1.19).toFixed(2)+"</i>";
