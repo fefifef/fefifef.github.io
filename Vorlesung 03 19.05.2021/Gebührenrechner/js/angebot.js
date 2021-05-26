@@ -59,7 +59,11 @@ function init()
     //nextVersion
     document.getElementById("bild").addEventListener("click", function(e) {wechsleBild(e)});
     document.getElementById("bild").addEventListener("mouseover", function(e) {wechsleBild(e)});
-    document.getElementById("bild").addEventListener("mouseout", function(e) {document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg")});
+    document.getElementById("bild").addEventListener("mouseout", function(e) 
+    {
+        console.log(e);
+        document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
+    });
 }
 document.addEventListener("DOMContentLoaded", init);
 
