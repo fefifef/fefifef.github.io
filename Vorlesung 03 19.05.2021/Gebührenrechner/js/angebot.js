@@ -80,9 +80,32 @@ function wechsleBild(e)
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
     {
         document.getElementById("bild").setAttribute("src", "img/notstromaggregat-rueckseite.jpg");
+        kreisausblenden();
     }
     else
     {
         document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
     }
+}
+
+let gedrueckt = 0;
+function zeigeKreis()
+{
+    if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg" && gedrueckt == 0)
+    {
+        document.getElementById("kreis").style.visibility = "visible";
+        gedrueckt = 1;
+        return;
+    }
+    if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg" && gedrueckt == 1)
+    {
+        kreisausblenden();
+        return;
+    }
+}
+
+function kreisausblenden()
+{
+    document.getElementById("kreis").style.visibility = "hidden";
+    gedrueckt = 0;
 }

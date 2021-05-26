@@ -77,4 +77,11 @@
 		padding:8px
 	}
 		
-	
+	#kreis
+	{
+		position: absolute;
+		top: 90px;
+		left: 390px;
+		visibility:hidden;
+		opacity: 0.7;
+	}
