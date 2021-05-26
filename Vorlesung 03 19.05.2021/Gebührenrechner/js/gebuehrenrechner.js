@@ -41,7 +41,21 @@ function berechnePreis(netto)
     }
 
     adresseEinlesen();
+    bestellungsbestaetigung();
+}
 
+function bestellungsbestaetigung()
+{
+    let date = new Date();
+    let today = date.getDate() + "." + (date.getMonth()+1) + "."+ date.getFullYear();
+
+    let newDate = new Date();
+
+    newDate.setDate(date.getDate()+3);
+
+    let newday = newDate.getDate() + "." + (newDate.getMonth()+1) + "."+ newDate.getFullYear();
+
+    alert("Vielen dank für ihre Bestellung am heutigen " + today + ". Die Buchungsbestädigung erhalten Sie spätestens in drei Tagen, d.h. am " + newday);
 }
 
 function adresseEinlesen()
