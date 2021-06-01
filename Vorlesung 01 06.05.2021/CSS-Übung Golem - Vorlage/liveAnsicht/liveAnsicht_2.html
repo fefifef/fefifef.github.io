@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box
+            {
+                border: solid #555 2px;
+                border-radius: 10px;
+                padding: 10px 20px;
+                width: 200px;
+                height: 7.5vh;
+            }
+            .live
+			{
+				/*display: none;*/
+				width: 100%;
+				height: 100%;
+			}
+        </style>
+    </head>
+    <body>
+        <h1>Live Ansicht</h1>
+        <br/>
+        <br/>
+        <table style="width:100%">
+            <tr id="left">
+                <th id="left">
+                    <object class="live" data="../artikel.html" type="text/plain"></object> 
+                </th>
+                <th id="right">
+                    <h2>HTML</h2>
+                    <object class="live" data="html.txt" type="text/plain"></object> 
+                    <h2>CSS</h2>
+                    <object class="live" data="css.txt" type="text/plain"></object> 
+                </th>
+            </tr>
+    </body>
+</html>
