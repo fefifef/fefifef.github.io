@@ -1,4 +1,4 @@
-function pageAufruf()
+function pageAufruf(url)
 {
-    var fenster = window.open("eins/01-eins.html","IDKNOW");
+    var fenster = window.open(url,"IDKNOW");
 }
