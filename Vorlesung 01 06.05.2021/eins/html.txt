@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<hmtl>
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>
+        </title>
+    </head>
+
+    <body>
+        Dies ist meine erste Website. Ich kann schon <strong>fettgedruckte</strong> und <em>kursive</em> Zeichen ausgeben und eine <br/>
+        neue Zeile beginnen!<br/><br/>
+        Fertig!
+    </body>
+
+</hmtl>
