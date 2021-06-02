@@ -91,7 +91,7 @@ function wechsleBild(e)
         document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
     }
 }
-
+let gedrueckt = 0;
 function zeigeKreis(id_Lupe)
 {
     let red_kreis = document.getElementById("kreis");
