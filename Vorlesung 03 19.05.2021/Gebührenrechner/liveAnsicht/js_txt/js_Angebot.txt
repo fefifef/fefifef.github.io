@@ -73,14 +73,14 @@ function init()
 
         console.log("Window inner Height: " + window.innerHeight);
         console.log("Window inner Width: " + window.innerWidth);
-        fenster.style.top = window.innerHeight / 2 + "px";
-        fenster.style.left = window.innerWidth / 2 + "px";
+        fenster.style.top = (window.innerHeight - 80) / 2 + "px";
+        fenster.style.left = (window.innerWidth - 380) / 2 + "px";
         document.addEventListener('click', (event) => 
         {
             console.log(`Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`);
-            if(event.clientX > (window.innerWidth / 2 + 340) && event.clientX < (window.innerWidth / 2 + 380))
+            if(event.clientX > ((window.innerWidth - 380) / 2 + 340) && event.clientX < ((window.innerWidth - 380) / 2 + 380))
             {
-                if(event.clientY > (window.innerHeight / 2) && event.clientY < (window.innerHeight / 2 + 40))
+                if(event.clientY > ((window.innerHeight - 80) / 2) && event.clientY < ((window.innerHeight - 80) / 2 + 40))
                 {
                     console.log("Close");
                     document.getElementById("message1").style.visibility = "hidden";
@@ -90,7 +90,6 @@ function init()
     }, 10000);
 }
 document.addEventListener("DOMContentLoaded", init);
-
 /*function wechsleBild()
 {
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
