@@ -22,9 +22,9 @@
                 <img id="kreis" src="img/kreis.png" class="kreis"/>
             </div>
             <p>
-                mit <strong>zwei Steckdosen</strong><img onclick="zeigeKreis()" src="img/lupe.png" id="lupe" alt="Lupe"/> 
-                einem robusten <strong>Ein-/Ausschalter</strong><br/>
-                und einem leistungsstarken 4600 Watt <strong>Dieselmotor 5.5e</strong>
+                mit <strong>zwei Steckdosen</strong><img id="lupe" onclick="zeigeKreis(this.id)" src="img/lupe.png" alt="Lupe"/> 
+                einem robusten <strong>Ein-/Ausschalter</strong><img id="lupe2" onclick="zeigeKreis(this.id)" src="img/lupe.png" alt="Lupe"/><br/>
+                und einem leistungsstarken 4600 Watt <strong>Dieselmotor 5.5e</strong><img id="lupe3"  onclick="zeigeKreis(this.id)" src="img/lupe.png" alt="Lupe"/>
             </p>
             <p id="preisbereich"><em>nur</em> <strong id="preis">999</strong> Euro inkl. 19% MwSt. <button type="button" onclick='wertAnzeigen()'>zeige Nettopreis</button></p>
             

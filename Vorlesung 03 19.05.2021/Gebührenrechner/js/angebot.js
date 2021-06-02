@@ -92,15 +92,37 @@ function wechsleBild(e)
     }
 }
 
-let gedrueckt = 0;
-
-function zeigeKreis()
+function zeigeKreis(id_Lupe)
 {
+    let red_kreis = document.getElementById("kreis");
+    console.log("Gedrückt wurde: " + id_Lupe);
+    
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg" && gedrueckt == 0)
     {
-        document.getElementById("kreis").style.visibility = "visible";
+        if(id_Lupe == "lupe")
+        {
+        red_kreis.style.top = "90px";
+        red_kreis.style.left = "390px";
+        red_kreis.style.visibility = "visible";
+        }
+        else
+        {
+            if(id_Lupe == "lupe2")
+            {
+                red_kreis.style.top = "90px";
+                red_kreis.style.left = "300px";
+                red_kreis.style.visibility = "visible";
+            }
+            else
+            {
+                red_kreis.style.top = "150px";
+                red_kreis.style.left = "200px";
+                red_kreis.style.visibility = "visible";
+            }
+        }
+        document.getElementById(id_Lupe).style.opacity = 0.3;
         gedrueckt = 1;
-        document.getElementById("lupe").style.opacity = 0.3;
+        
         return;
     }
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg" && gedrueckt == 1)
@@ -114,5 +136,7 @@ function kreisausblenden()
 {
     document.getElementById("kreis").style.visibility = "hidden";
     document.getElementById("lupe").style.opacity = 1.0;
+    document.getElementById("lupe2").style.opacity = 1.0;
+    document.getElementById("lupe3").style.opacity = 1.0;
     gedrueckt = 0;
 }
