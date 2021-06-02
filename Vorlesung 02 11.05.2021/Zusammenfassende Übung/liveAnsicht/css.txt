@@ -1,0 +1,38 @@
+header
+    {
+      border: solid 1px red;
+      border-radius: 10px;
+      width: 800px;
+      text-align: center;
+      margin: 5px;
+    }
+
+    header h1
+    {
+      margin: 0px;
+    }
+
+    section
+    {
+      border: solid 1px blue;
+      float: left;
+      width: 190px;
+      height: 384px;
+      margin: 5px;
+      margin-top: 0px;
+    }
+
+    aside
+    {
+      margin: 5px;
+      margin-left: 215px;
+      width: 590px;
+      border: solid 1px green;
+    }
+
+    footer
+    {
+      margin: 5px;
+      width: 800px;
+      border: solid 1px purple;
+    }

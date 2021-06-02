@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="layout.css">
+    </head>
+    <body>
+        <h1>Nissan</h1>
+        <h2>Primera</h2>
+
+        <div class="txt_ueberschriift">Modellgeschichte</div>
+
+        <br/>
+
+        <img id='artikelbild' src="800px-Nissan_Primera.jfif" alt="Bild eines Nissan Primera Stufenheck 1990 - 1995">
+        <div id="txt">
+            Der Primera wurde als erstes Modell von Nissan gezielt für den europäischen Markt entwickelt und produziert. Er erschien im Oktober 1990 auf dem Pariser Autosalon und wurde ab Ende des Monats in Deutschland verkauft.
+
+            Die Technik des Primera wurde neu entwickelt, wodurch ein sehr gutes Handling erzielt werden konnte. Die Vorderachsaufhängung der Primera-Limousine ist eine hybride Konstruktion aus einer Doppelquerlenkerradaufhängung und einem Federbein. Charakteristisch ist der etwas angestellte obere Querlenker, der auch als „third link“ bezeichnet wird. Diese Bauweise ist vom P10 bis zum P11-144 gleich.[1]
+
+            Die Limousinen- und die Kombivarianten sind auf unterschiedlichen Plattformen aufgebaut und haben bis auf den Namen wenig miteinander gemeinsam. Tatsächlich basiert der Traveller (Baureihe W10) auf dem japanischen Nissan Avenir und hat somit auch nicht die gleiche Fahrwerkskonstruktion wie die Limousine.
+
+            Bereits im Juni 1993 erhielt der Primera eine kleine Überarbeitung, bei der die Sicherheitsausstattung erweitert und die Motoren überarbeitet wurden.
+
+            <br/>
+            <a href="https://de.wikipedia.org/wiki/Nissan_Primera_P10"> wikipedia</a>
+
+        </div>
+
+
+</html>

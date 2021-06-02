@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+  <title>CSS-Beispiel</title>
+
+  <style type="text/css">
+
+  /*
+    #seite 
+	  {
+      Wird nicht gebraucht
+    }*/
+    #navigation 
+	{
+      float: left;
+      width: 150px;
+      height: 400px;
+      margin-top: 0px;
+      background-color:#659ECB;
+    }
+    #inhalt 
+	  {
+      margin-left: 200px;
+      background-color:#C0D7E8;
+    }
+
+
+  </style>
+</head>
+<body>
+
+<div id="seite">
+
+  <ul id="navigation">
+         <li><a href="#">Homepage</a></li>
+         <li><a href="#">News</a></li>
+         <li><a href="#">Shop</a></li>
+         <li><a href="#">Impressum</a></li>
+  </ul>
+
+  <div id="inhalt">
+         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>
