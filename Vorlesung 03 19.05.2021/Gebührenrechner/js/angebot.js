@@ -90,10 +90,6 @@ function init()
     }, 10000);
 }
 document.addEventListener("DOMContentLoaded", init);
-close()
-{
-    
-}
 /*function wechsleBild()
 {
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
