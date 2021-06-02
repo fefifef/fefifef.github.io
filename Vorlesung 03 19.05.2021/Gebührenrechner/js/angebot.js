@@ -101,9 +101,9 @@ function zeigeKreis(id_Lupe)
     {
         if(id_Lupe == "lupe")
         {
-        red_kreis.style.top = "90px";
-        red_kreis.style.left = "390px";
-        red_kreis.style.visibility = "visible";
+            red_kreis.style.top = "90px";
+            red_kreis.style.left = "390px";
+            red_kreis.style.visibility = "visible";
         }
         else
         {
