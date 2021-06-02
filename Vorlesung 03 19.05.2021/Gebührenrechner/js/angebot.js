@@ -78,9 +78,9 @@ function init()
         document.addEventListener('click', (event) => 
         {
             console.log(`Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`);
-            if(event.clientX > ((window.innerWidth - 380) / 2 + 340) && event.clientX < (window.innerWidth / 2 + 380))
+            if(event.clientX > ((window.innerWidth - 380) / 2 + 340) && event.clientX < ((window.innerWidth - 380) / 2 + 380))
             {
-                if(event.clientY > ((window.innerHeight - 80) / 2) && event.clientY < (window.innerHeight / 2 + 40))
+                if(event.clientY > ((window.innerHeight - 80) / 2) && event.clientY < ((window.innerHeight - 80) / 2 + 40))
                 {
                     console.log("Close");
                     document.getElementById("message1").style.visibility = "hidden";
