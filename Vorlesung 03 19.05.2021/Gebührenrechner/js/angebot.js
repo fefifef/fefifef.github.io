@@ -64,9 +64,36 @@ function init()
         console.log(e);
         document.getElementById("bild").setAttribute("src", "img/notstromaggregat.jpg");
     });
+    
+    setTimeout(function()
+    {
+        console.log("Ladet message");
+        let fenster = document.getElementById("message1");
+        fenster.style.visibility = "visible";
+
+        console.log("Window inner Height: " + window.innerHeight);
+        console.log("Window inner Width: " + window.innerWidth);
+        fenster.style.top = window.innerHeight / 2 + "px";
+        fenster.style.left = window.innerWidth / 2 + "px";
+        document.addEventListener('click', (event) => 
+        {
+            console.log(`Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`);
+            if(event.clientX > (window.innerWidth / 2 + 340) && event.clientX < (window.innerWidth / 2 + 380))
+            {
+                if(event.clientY > (window.innerHeight / 2) && event.clientY < (window.innerHeight / 2 + 40))
+                {
+                    console.log("Close");
+                    document.getElementById("message1").style.visibility = "hidden";
+                }
+            }
+        });
+    }, 10000);
 }
 document.addEventListener("DOMContentLoaded", init);
-
+close()
+{
+    
+}
 /*function wechsleBild()
 {
     if(document.getElementById("bild").getAttribute("src") == "img/notstromaggregat.jpg")
