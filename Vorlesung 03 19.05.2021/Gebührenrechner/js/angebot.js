@@ -131,6 +131,73 @@ function zeigeKreis(id_Lupe)
         return;
     }
 }
+let kreisX;
+let kreisY;
+let intervallId
+function animationAnzeige()
+{
+    let kreis = document.getElementById("kreis");
+    kreis.style.visibility = "visible";
+    kreisX = 390;
+    kreisY = 90;
+
+    intervallId = window.setInterval(bewegeKreis,30);
+}
+
+function bewegeKreis()
+{
+    let kreis = document.getElementById("kreis");
+
+    if(kreisX == 390 && kreisY == 90)
+    {
+        document.getElementById("zweiSteckdosen").style.color = "red";
+        kreis.style.opacity = 0.8;
+    }
+    else
+    {
+        if(kreisX == 300 && kreisY == 90)
+        {
+            document.getElementById("zweiSteckdosen").style.color = "black";
+            document.getElementById("Ein-Ausschalter").style.color = "red";
+            kreis.style.opacity = 0.8;
+        }
+        else
+        {
+            if(kreisX == 200 && kreisY == 150)
+            {
+                document.getElementById("Ein-Ausschalter").style.color = "black";
+                document.getElementById("dieselmotor").style.color = "red";
+                kreis.style.opacity = 0.8;
+            }
+            else
+            {
+                kreis.style.opacity = 0.5;
+            }
+
+            
+        }   
+    }
+
+    kreisX--;
+    if(kreisX < 300 && kreisY < 150)
+    {
+        kreisY++;
+    }
+
+    kreis.style.left = kreisX + "px";
+    kreis.style.top = kreisY + "px";
+    
+    if(kreisX >= 150)
+    {
+        window.setTimeout("bewegeKreis",30);
+    }
+
+    if(kreisX < 199)
+    {
+        window.clearInterval(intervallId);
+    }
+    
+}
 
 function kreisausblenden()
 {
