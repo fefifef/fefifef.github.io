@@ -1,33 +1,41 @@
 ﻿<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf8">
+        <title>Notstrom Mustermann GmbH</title>
+        <link rel="stylesheet" href="css/layout.css"/>
+    </head>
 
-<head>
-<meta charset="utf8">
-<title>Notstrom Mustermann GmbH</title>
-<link rel="stylesheet" href="css/layout.css"/>
-</head>
+    <body>
+        <script language="javascript" src="js/bestellformular.js"></script>
+        <div id='rahmen'>
 
-<body>
-<div id='rahmen'>
+        <h1 class="ueberschrift1">Notstrom Mustermann GmbH</h1>
 
-<h1 class="ueberschrift1">Notstrom Mustermann GmbH</h1>
+        <h2 class="ueberschrift2">Ihr Notstromanlagen-Spezialist in Stuttgart</h2>
 
-<h2 class="ueberschrift2">Ihr Notstromanlagen-Spezialist in Stuttgart</h2>
+        <h3 class="ueberschrift3">Verkauf - Wartung - Planung - Service</h3>
 
-<h3 class="ueberschrift3">Verkauf - Wartung - Planung - Service</h3>
+        <hr/>
 
-<hr/>
+        <h2 class="angebot">Bestellformular Notstromanlage X2345+</h2>
 
-<h2 class="angebot">Bestellformular Notstromanlage X2345+</h2>
+        <form name="bestellformular">
+            <p>Bestellung von <input type="text" name="anzahl" value="0" id="anz" style="width: 50px"> Geräaten zum Preis von Euro 999,00 / Gerät.</p>
+            <p> <strong>Gesamtpreis:</strong> <strong id="preis_anzeige">0</strong> 
+            <select name="waehrung">
+                <option>EUR</option>
+                <option>CHF</option>
+                <option>USD</option>
+            </select> inkl. 19% MwSt.</p>
+        </form>
 
-<p>Bestellung von ...</p>
+        <hr>
 
-<hr>
+        <p class="unten"><a href="index.html">Startseite</a> - <a href="#">Kontakt</a> - <a href="#">Anfahrt</a> - <a href="#">Impressum</a></p>
 
-<p class="unten"><a href="index.html">Startseite</a> - <a href="#">Kontakt</a> - <a href="#">Anfahrt</a> - <a href="#">Impressum</a></p>
-
-</div>
-
-</body>
+        </div>
+        
+    </body>
 
 </html>
