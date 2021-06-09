@@ -21,13 +21,55 @@
         <h2 class="angebot">Bestellformular Notstromanlage X2345+</h2>
 
         <form name="bestellformular">
-            <p>Bestellung von <input type="text" name="anzahl" value="0" id="anz" style="width: 50px"> Geräaten zum Preis von Euro 999,00 / Gerät.</p>
-            <p> <strong>Gesamtpreis:</strong> <strong id="preis_anzeige">0</strong> 
-            <select name="waehrung">
-                <option>EUR</option>
-                <option>CHF</option>
-                <option>USD</option>
-            </select> inkl. 19% MwSt.</p>
+            <p>
+                Bestellung von <input type="text" name="anzahl" value="0" id="anz" style="width: 50px"> Geräaten zum Preis von Euro 999,00 / Gerät.
+            </p>
+            <p> 
+                <strong>
+                    Gesamtpreis:
+                </strong> 
+                <strong id="preis_anzeige">
+                    0
+                </strong> 
+                <select name="waehrung">
+                    <option>EUR</option>
+                    <option>CHF</option>
+                    <option>USD</option>
+                </select> inkl. 19% MwSt.
+            </p>
+            <p style="width: 100%;text-align: left;">Firma: <br/>
+                <input style="width: 100%" name="firma" id="firma" required="required"/>
+            </p>
+            <p style="width: 100%;text-align: left;">Straße: <br/>
+                <input style="width: 100%" type="text" name="str" id="str"/>
+            </p>
+            <p style="width: 100%;text-align: left;">PLZ: <br/>
+                <input style="width: 100%" type="number" min="4" max="5" name="plz" id="plz"/>
+            </p>
+            <p style="width: 100%;text-align: left;">Ort: <br/>
+                <input style="width: 100%" type="text" name="ort" id="ort"/>
+            </p>
+            <p style="width: 100%;text-align: left;">
+                Ansprechpartner: 
+                <input type="checkbox"/> Frau
+                <input type="checkbox"/> Herr
+                <input type="checkbox"/> Divers
+            </p>
+            <p style="width: 100%;text-align: left;">
+                Vor- und Nachname: <br/>
+                <input style="width: 100%" type="text" name="name" id="name"/>
+            </p>
+            <p style="width: 100%;text-align: left;">
+                E-Mail <br/>
+                <input style="width: 100%" type="email" name="mail" id="mail"/>
+            </p>
+            <p style="width: 100%;text-align: left;">
+                <input type="checkbox" name="agb" id="agb"/> Ich habe die <a href="##">AGB</a> gelesen und stimme diesen zu.
+            </p>
+            <p style="width: 100%;text-align: left;">
+                <button type="submit"><strong>kostenpflichtig</strong> bestellen</button>
+            </p>
+
         </form>
 
         <hr>

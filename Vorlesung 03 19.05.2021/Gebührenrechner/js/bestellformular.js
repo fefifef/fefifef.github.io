@@ -4,8 +4,33 @@ function init()
 {
     document.bestellformular.anzahl.addEventListener("input", berechnePreis);
     document.bestellformular.waehrung.addEventListener("change", berechnePreis);
+    document.bestellformular.submit.addEventListener("submit",function(evt){return check(evt)});
 }
 document.addEventListener("DOMContentLoaded", init);
+
+function check(evt)
+{
+    let fehler = "";
+    if(document.bestellformular.str.value == "")
+    {
+        fehler += "Sie müssen eine Straße eingeben! \n";
+    }
+    if(document.bestellformular.plz.value.length < 4 || document.bestellformular.plz.value.length > 5)
+    {
+        fehler += "Die PLZ muss aus 4 oder 5 zeichen bestehen!\n";
+    }
+    if(isNaN(document.bestellformular.plz.value))
+    {
+        fehler += "Die PLZ darf nur aus straßen bestehen";
+    }
+
+    if(fehler != "")
+    {
+        alert(fehler);
+        evt.preventDefault();
+    }
+    return;
+}
 
 function berechnePreis()
 {
