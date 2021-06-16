@@ -1,33 +1,116 @@
-<!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf8">
+        <title>Notstrom Mustermann GmbH</title>
+        <link rel="stylesheet" href="css/layout.css"/>
+    </head>
 
-<head>
-<meta charset="utf8">
-<title>Notstrom Mustermann GmbH</title>
-<link rel="stylesheet" href="css/layout.css"/>
-</head>
+    <body>
+        <script language="javascript" src="js/bestellformular.js"></script>
+        <div id='rahmen'>
 
-<body>
-<div id='rahmen'>
+        <h1 class="ueberschrift1">Notstrom Mustermann GmbH</h1>
 
-<h1 class="ueberschrift1">Notstrom Mustermann GmbH</h1>
+        <h2 class="ueberschrift2">Ihr Notstromanlagen-Spezialist in Stuttgart</h2>
 
-<h2 class="ueberschrift2">Ihr Notstromanlagen-Spezialist in Stuttgart</h2>
+        <h3 class="ueberschrift3">Verkauf - Wartung - Planung - Service</h3>
 
-<h3 class="ueberschrift3">Verkauf - Wartung - Planung - Service</h3>
+        <hr/>
 
-<hr/>
+        <h2 class="angebot">Bestellformular Notstromanlage X2345+</h2>
 
-<h2 class="angebot">Bestellformular Notstromanlage X2345+</h2>
+        <form name="bestellformular" onsubmit="return check;" >
+            <p>
+                Bestellung von <input type="text" name="anzahl" value="0" id="anz" style="width: 50px"> Geräaten zum Preis von Euro 999,00 / Gerät.
+            </p>
+            <p> 
+                <strong>
+                    Gesamtpreis:
+                </strong> 
+                <strong id="preis_anzeige">
+                    0
+                </strong> 
+                <select name="waehrung">
+                    <option>EUR</option>
+                    <option>CHF</option>
+                    <option>USD</option>
+                </select> inkl. 19% MwSt.
+            </p>
 
-<p>Bestellung von ...</p>
 
-<hr>
+            <p style="width: 100%;text-align: left;">Firma: <br/>
+                <input style="width: 100%" name="firma" id="firma"/>
+            </p>
+            <p style="width: 100%;text-align: left;">Straße: <br/>
+                <input style="width: 100%" type="text" name="str" id="str" value=""/>
+            </p>
+            <p style="width: 100%;text-align: left;">PLZ: <br/>
+                <input style="width: 100%" type="number" name="plz" id="plz" min="4" max="5"/>
+            </p>
+            <p style="width: 100%;text-align: left;">Ort: <br/>
+                <input style="width: 100%" type="text" name="ort" id="ort"/>
+            </p>
+            <p style="width: 100%;text-align: left;">
+                Ansprechpartner: 
+                <input type="radio" name="gender" value="male"> Mann
+                <input type="radio" name="gender" value="female"> Frau
+                <input type="radio" name="gender" value="diverse"> Diverse
+            </p>
+            <p style="width: 100%;text-align: left;">
+                Vor- und Nachname: <br/>
+                <input style="width: 100%" type="text" name="name" id="name"/>
+            </p>
+            <p style="width: 100%;text-align: left;">
+                E-Mail <br/>
+                <input style="width: 100%" type="email" name="mail" id="mail"/>
+            </p>
 
-<p class="unten"><a href="index.html">Startseite</a> - <a href="#">Kontakt</a> - <a href="#">Anfahrt</a> - <a href="#">Impressum</a></p>
+            <p style="width: 100%;text-align: left;">
+                Lieferung durch: 
+                <select name="lieferung_durch" id="lieferung_durch">
+                    <option>DHL</option>
+                    <option>UPS</option>
+                    <option>HERMES</option>
+                </select>
+                <a id="paketdienst" href="##">[Info]</a>
+            </p>
 
-</div>
+            <p style="width: 100%;text-align: left;">
+                <input type="checkbox" name="agb" id="agb"/> Ich habe die <a href="##">AGB</a> gelesen und stimme diesen zu.
+            </p>
 
-</body>
+
+            <p style="width: 100%;text-align: left;">
+                <input type="radio" name="abweichende_rechnungsadresse_select" value="identisch" onchange="handleChange1()"> Rechnungsadresse ist identisch
+                <input type="radio" name="abweichende_rechnungsadresse_select" value="abweichend" onchange="handleChange2()"> abweichende Rechnungsadresse
+            </p>
+
+            <div name="abweichende_rechnungsadresse" id="abweichende_rechnungsadresse" style="display: none;">
+                <p style="width: 100%;text-align: left;">Firma: <br/>
+                    <input style="width: 100%" name="rechnungsadresse_firma" id="rechnungsadresse_firma"/>
+                </p>
+                <p style="width: 100%;text-align: left;">Straße: <br/>
+                    <input style="width: 100%" type="text" name="rechnungsadresse_str" id="rechnungsadresse_str"/>
+                </p>
+                <p style="width: 100%;text-align: left;">PLZ: <br/>
+                    <input style="width: 100%" type="number" name="rechnungsadresse_plz" id="rechnungsadresse_plz" min="4" max="5"/>
+                </p>
+                <p style="width: 100%;text-align: left;">Ort: <br/>
+                    <input style="width: 100%" type="text" name="rechnungsadresse_ort" id="rechnungsadresse_ort"/>
+                </p>
+            </div>
+            
+            <p style="width: 100%;text-align: left;">
+                <button type="submit" name="submit"><strong>kostenpflichtig</strong> bestellen</button>
+            </p> 
+        </form>
+
+        <hr>
+
+        <p class="unten"><a href="index.html">Startseite</a> - <a href="#">Kontakt</a> - <a href="#">Anfahrt</a> - <a href="#">Impressum</a></p>
+
+        </div>
+        
+    </body>
 
 </html>
