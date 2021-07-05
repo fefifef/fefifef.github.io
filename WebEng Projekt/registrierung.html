@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Notstrom Mustermann GmbH</title>
+        <link rel="stylesheet" href="registrierung.css"/>
+    </head>
+
+    <body>
+        <script language="javascript" src="registrierung.js"></script>
+        <div id='rahmen'>
+
+        <h1 class="ueberschrift1">Privatbank Mustermann</h1>
+
+        <h2 class="ueberschrift2">Die Privatbank für Ihre Finanzen</h2>
+
+        <h3 class="ueberschrift3">Registrierung</h3>
+
+        <hr/>
+
+        <h2 class="angebot">Bitte Felder ausfüllen</h2>
+
+        <form name="formular" onsubmit="return check;" >
+            <p style="width: 100%;text-align: left;">
+                Anrede:
+                <input type="radio" name="gender" id="gender" value="male"> Mann
+                <input type="radio" name="gender" id="gender" value="female"> Frau
+                <input type="radio" name="gender" id="gender" value="diverse"> Diverse
+            </p>
+
+            <p style="width: 100%;text-align: left;">Vorname: <br/>
+                <input style="width: 100%" name="vorname" id="vorname"/>
+            </p>
+
+            <p style="width: 100%;text-align: left;">Nachname: <br/>
+                <input style="width: 100%" name="nachname" id="nachname"/>
+            </p>
+                
+            <p style="width: 100%;text-align: left;">
+                E-Mail: <br/>
+                <input style="width: 100%" type="mail" name="mail_1" id="mail_1"/>
+            </p>
+
+            <p style="width: 100%;text-align: left;">
+                E-Mail wiederholen: <br/>
+                <input style="width: 100%" type="email" name="mail_2" id="mail_2"/>
+            </p>
+
+            <p style="width: 100%;text-align: left;">
+                Geben Sie Ihr Geburtsdatum und -Uhrzeit ein: <br/>
+                <input type="date" name="geburtsdatum">
+            </p>
+    
+            <p style="width: 100%;text-align: left;">PLZ des Wohnorts: <br/>
+                <input style="width: 100%" type="number" name="plz" id="plz"/>
+            </p>
+            
+            <p style="width: 100%;text-align: left;">
+                <button type="submit" name="submit">Registrierung</button>
+            </p> 
+        </form>
+
+        <hr>
+
+        <p class="unten"><a href="index.html">Startseite</a> - <a href="#">Kontakt</a> - <a href="#">Anfahrt</a> - <a href="#">Impressum</a></p>
+
+        </div>
+        
+    </body>
+
+</html>

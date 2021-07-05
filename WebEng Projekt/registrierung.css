@@ -1,0 +1,38 @@
+body
+{
+    font-family:Helvetica;
+}
+
+.ueberschrift1
+{
+    color:#1f33e6;
+}
+
+.ueberschrift2
+{
+    font-size:16pt;
+    font-weight:normal;
+}
+
+.ueberschrift3
+{
+    font-size:14pt;
+    font-weight:normal;
+    color:#5F615E;
+}
+
+.angebot
+{
+    font-size:16pt;
+}
+
+#rahmen
+{
+    border:solid 1px grey;
+    width:700px;
+    border-radius:5px;
+    padding:10px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
