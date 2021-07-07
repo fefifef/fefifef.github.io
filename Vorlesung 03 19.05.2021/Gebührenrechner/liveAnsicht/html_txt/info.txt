@@ -6,6 +6,175 @@
 <title>Notstrom Mustermann GmbH</title>
 <link rel="stylesheet" href="css/layout.css"/>
 </head>
+
+<script src="jquery/jquery-3.2.1.min.js"></script>
+
+<script>
+	$(document).ready(function()
+	{
+	//----------------------------------------------------------------------------------------------------
+	//Alle elemente mit id="diesel" werden rot gefärbt
+	/*
+		$("#btnDiesel").click(function(event)
+		{
+			$("#diesel").css("color","red");
+			$("#produktliste em").css("color","black");
+		});
+	*/
+	//----------------------------------------------------------------------------------------------------
+	//Alle em Elemente der Seite werden gefärbt
+	/*
+		$("#btnBenzin").click(function(event)
+		{
+			$("em").css("color","red");
+			$("#diesel").css("color","black");
+		});
+	*/
+	//----------------------------------------------------------------------------------------------------
+	//Alle em Elemente der Tabelle werden gefärbt
+	/*
+		$("#btnBenzin").click(function(event)
+		{
+			$("#produktliste em").css("color","red");
+			$("#diesel").css("color","black");
+		});
+	*/
+	//----------------------------------------------------------------------------------------------------
+	//Click auf die Buttons
+	/*
+		$("#btnBenzin").click(function(event)
+		{
+			removeClasses();
+			$("#produktliste em").addClass("font_red");
+			$("#diesel").addClass("font_black");
+		});
+		$("#btnDiesel").click(function(event)
+		{
+			removeClasses();
+			$("#produktliste em").addClass("font_black");
+			$("#diesel").addClass("font_red");
+		});
+		function removeClasses()
+		{
+			$("#produktliste em").removeClass();
+			$("#diesel").removeClass();
+		}
+	*/
+	//----------------------------------------------------------------------------------------------------
+	//Hover	über die Button
+		$("#btnDiesel").hover(function() 
+		{
+			$("#diesel").css("color","red");
+		},function()
+		{
+			$("#diesel").css("color","black");
+		});
+		$("#btnBenzin").hover(function() 
+		{
+			$("#produktliste em").css("color","red");
+		},function()
+		{
+			$("#produktliste em").css("color","black");
+		});
+	//----------------------------------------------------------------------------------------------------
+	//Übung 2
+		$("#fahneAT").click(function(event)
+		{
+		//Wenn nur ein Land angezeigt werden soll
+		/*
+			$("#zielland").text("Nach Österreich 10-20 Tage");
+		*/
+			$("#zielland").append(", nach Österreich 10-20 Tage");
+			$("#fahneAT").hide();
+		});
+		$("#fahneCH").click(function(event)
+		{
+		//Wenn nur ein Land angezeigt werden soll
+		/*
+			$("#zielland").text("In die Schweiz 20-30 Tage");
+		*/
+			$("#zielland").append(", in die Schweiz 20-30 Tage");
+			$("#fahneCH").hide();
+		});
+	//----------------------------------------------------------------------------------------------------
+	//Übung 3
+		let size = 12;
+		$("#btnVerfuegbarkeit").click(function(event)
+		{
+			
+			$("td").each(function(i)
+			{
+			//----------------------------------------
+			//Durchnummeriert
+			/*
+				$(this).append(" (" + i + ")");
+			*/
+			//----------------------------------------	
+			//Schrift Größe Anpassen
+			/*
+				if(i % 5 == 0)
+				{
+					size += 4;
+				}	
+				$(this).css("font-size", size+"px");
+			*/
+			//----------------------------------------
+			//[ok] schreiben
+			/*
+				$(this).append("[ok]");
+			*/
+			//----------------------------------------
+			//ok.png anzeigen in 1 Spalte
+				if(i % 5 == 0)
+				{
+					$(this).append("<img src=\"img/ok.png\">");
+				}	
+			});
+			
+		});
+	//----------------------------------------------------------------------------------------------------
+	//Übung 4
+	let gedrueckt = 0;
+		$("#fragezeichen").click(function()
+		{
+		//----------------------------------------
+		//Slide up and down
+		/*
+			if(gedrueckt == 0)
+			{
+				$("#agb").slideUp();
+				gedrueckt = 1;
+			}
+			else
+			{
+				$("#agb").slideDown();
+				gedrueckt = 1;
+			}
+		*/
+		//----------------------------------------
+		//Toggle
+		/*
+			$("#agb").toggle();
+		*/
+		//----------------------------------------
+		//SlideToggle
+			$("#agb").slideToggle();
+		});	
+	});
+	
+</script>
+<style>
+	.font_red
+	{
+		color: red;
+	}
+	.font_black
+	{
+		color: black;
+	}
+</style>
+
+
 <body>
 <div id='rahmen'>
 
@@ -19,7 +188,7 @@
 
 <h2 class="angebot">Notstromanlagen</h2>
 
-<p>Neben den klassischen <button type="button">Benzin-Anlagen</button> bieten wir auch mit  <button type="button">Diesel</button> betriebene Anlagen.</p>
+<p>Neben den klassischen <button type="button"  id="btnBenzin">Benzin-Anlagen</button> bieten wir auch mit  <button type="button"  id="btnDiesel">Diesel</button> betriebene Anlagen.</p>
 
 <table id="produktliste">
 
@@ -60,11 +229,19 @@
 </tr>
 </table>
 
-<p><em>Wichtiger Hinweis:</em> alle Preise inkl. MwSt. <button type="button">Verfügbarkeit prüfen</button></p>
+<p><em>Wichtiger Hinweis:</em> alle Preise inkl. MwSt. <button type="button" id="btnVerfuegbarkeit">Verfügbarkeit prüfen</button></p>
 
-<p><strong>Lieferzeit<br/></strong> <span id="zielland">nach Deutschland ca. 3-5 Tage</span></p>
+<p>
+	<strong>Lieferzeit</strong>		<br/> 
+	<span id="zielland">nach Deutschland ca. 3-5 Tage</span>
 
-<div><strong>AGB und Lieferbedingungen</strong> <img src="img/fragezeichen.png"></div>
+	<img id="fahneCH" src="img/schweiz.png"/>
+	<img id="fahneAT" src="img/oesterreich.png"/>
+
+
+</p>
+
+<div><strong>AGB und Lieferbedingungen</strong> <img src="img/fragezeichen.png" id="fragezeichen"></div>
 <div id="agb">
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
 erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus 
