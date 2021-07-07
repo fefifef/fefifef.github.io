@@ -6,6 +6,72 @@
 <title>Notstrom Mustermann GmbH</title>
 <link rel="stylesheet" href="css/layout.css"/>
 </head>
+
+<script src="jquery/jquery-3.2.1.min.js"></script>
+
+<script>
+	$(document).ready(function()
+	{
+	//----------------------------------------------------------------------------------------------------
+	//Alle elemente mit id="diesel" werden rot gefärbt
+	/*
+		$("#btnDiesel").click(function(event)
+		{
+			$("#diesel").css("color","red");
+			$("#produktliste em").css("color","black");
+		});
+	*/
+	//----------------------------------------------------------------------------------------------------
+	//Alle em Elemente der Seite werden gefärbt
+	/*
+		$("#btnBenzin").click(function(event)
+		{
+			$("em").css("color","red");
+			$("#diesel").css("color","black");
+		});
+	*/
+	//----------------------------------------------------------------------------------------------------
+	//Alle em Elemente der Tabelle werden gefärbt
+	/*
+		$("#btnBenzin").click(function(event)
+		{
+			$("#produktliste em").css("color","red");
+			$("#diesel").css("color","black");
+		});
+	*/
+	//----------------------------------------------------------------------------------------------------
+		$("#btnBenzin").click(function(event)
+		{
+			removeClasses();
+			$("#produktliste em").addClass("font_red");
+			$("#diesel").addClass("font_black");
+		});
+		$("#btnDiesel").click(function(event)
+		{
+			removeClasses();
+			$("#produktliste em").addClass("font_black");
+			$("#diesel").addClass("font_red");
+		});
+		function removeClasses()
+		{
+			$("#produktliste em").removeClass();
+			$("#diesel").removeClass();
+		}
+	});
+	
+</script>
+<style>
+	.font_red
+	{
+		color: red;
+	}
+	.font_black
+	{
+		color: black;
+	}
+</style>
+
+
 <body>
 <div id='rahmen'>
 
@@ -19,7 +85,7 @@
 
 <h2 class="angebot">Notstromanlagen</h2>
 
-<p>Neben den klassischen <button type="button">Benzin-Anlagen</button> bieten wir auch mit  <button type="button">Diesel</button> betriebene Anlagen.</p>
+<p>Neben den klassischen <button type="button"  id="btnBenzin">Benzin-Anlagen</button> bieten wir auch mit  <button type="button"  id="btnDiesel">Diesel</button> betriebene Anlagen.</p>
 
 <table id="produktliste">
 
