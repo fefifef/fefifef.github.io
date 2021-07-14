@@ -26,11 +26,11 @@ function init()
 {
     restzeit = 300;
     kontostand = 10000.00;
-    preis_aktie = 80.00;
+    preis_aktie = 100.00;
     anz__aktien = 0;
     
     posX = 0;
-    posY = 250;
+    posY = 1000;
     anzHintereinadnerUp = 0;
     anzHintereinadnerDown = 0;
 
@@ -73,8 +73,7 @@ function start()
 
     ctx.beginPath();
     ctx.moveTo(posX, posY);
-
-    interval = setInterval(updateKurs, 1000);
+    interval = setInterval(updateKurs, 500);
 }
 function kauf_aktie()
 { 
@@ -83,7 +82,7 @@ function kauf_aktie()
     {
         anz__aktien++;
         kontostand = kontostand - preis_aktie;
-        anzeige_kontostand.textContent = kontostand;
+        anzeige_kontostand.textContent = kontostand.toFixed(2);
         anzeige_aktienKurs.textContent = preis_aktie;
         anzeige_anzAktien.textContent = anz__aktien;
     }
@@ -94,7 +93,7 @@ function verkauf_aktie()
     {
         anz__aktien--;
         kontostand = kontostand+preis_aktie;
-        anzeige_kontostand.textContent = kontostand;
+        anzeige_kontostand.textContent = kontostand.toFixed(2);
         anzeige_aktienKurs.textContent = preis_aktie;
         anzeige_anzAktien.textContent = anz__aktien;
     }
@@ -105,7 +104,7 @@ function verkauf_aktien()
     {
         kontostand = kontostand + (preis_aktie * anz__aktien);
         anz__aktien = 0;
-        anzeige_kontostand.textContent = kontostand;
+        anzeige_kontostand.textContent = kontostand.toFixed(2);
         anzeige_aktienKurs.textContent = preis_aktie;
         anzeige_anzAktien.textContent = anz__aktien;
     }
@@ -122,29 +121,44 @@ let upOrDown;
 function updateKurs()
 {
 
-        if(getRandomInt(2) == 0)
-        {
+    let veraenderung = getRandomInt(9)+1;
+    posX += 5;
+    switch(getRandomInt(3))
+    {
+        case 0:
             upOrDown = "up";
             anzHintereinadnerUp++;
             anzHintereinadnerDown = 0;
-        }else
-        {
+            if(posY - veraenderung < 0)
+            {
+                posY = 0;
+            }
+            else
+            {
+                posY -= veraenderung;
+            }
+            break;
+        case 1:
             upOrDown = "down";
             anzHintereinadnerDown++;
             anzHintereinadnerUp = 0;
-        }
-
-
-    if(upOrDown == "up")
-    {
-        posX += 5;
-        posY -= 5;
+            if(posY + veraenderung > 2000)
+            {
+                posY = 0;
+            }
+            else
+            {
+                posY += veraenderung;
+            }
+            break;
+        case 2:
+            upOrDown = "stay";
+            anzHintereinadnerUp = 0;
+            anzHintereinadnerDown = 0;
+            break;
     }
-    if(upOrDown == "down")
-    {
-        posX += 5;
-        posY += 5;
-    }
+    preis_aktie = posY/10;
+    anzeige_aktienKurs.textContent = preis_aktie.toFixed(2);
     console.log("POSX: " + posX + "| POSY: " + posY);
     ctx.moveTo(posX,posY);
     ctx.stroke();
