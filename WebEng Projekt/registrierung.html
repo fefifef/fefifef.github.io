@@ -1,70 +1,87 @@
 <html>
     <head>
         <meta charset="utf8">
-        <title>Notstrom Mustermann GmbH</title>
-        <link rel="stylesheet" href="registrierung.css"/>
+        <title>Registrierung</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer-navbar/">
+        <style>
+            #rahmen
+            {
+                border:solid 1px grey;
+                width:700px;
+                border-radius:5px;
+                padding:10px;
+                text-align:center;
+                margin-left:auto;
+                margin-right:auto;
+            }
+        </style>
     </head>
 
     <body>
         <script language="javascript" src="registrierung.js"></script>
         <div id='rahmen'>
+            <div class="p-5 mb-4 bg-light rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">Börsenspiel Registrierung</h1>
+                </div>
+            </div>
+            <form name="formular" onsubmit="return check;" class="row g-3">
+                <!-- Auswahl Geschlecht/Anrede -->
+                <div name="auswahl_gender" id="auswahl_gender" class="mb-3">
+                    <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Anrede: </label>
+                    <input type="radio" name="gender" id="gender" value="male"> Mann
+                    <input type="radio" name="gender" id="gender" value="female"> Frau
+                    <input type="radio" name="gender" id="gender" value="diverse"> Diverse
+                </div>
+                <!-- Vorname -->
+                <div class="mb-3 row">
+                    <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Vorname: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="vorname" id="vorname">
+                    </div>
+                </div>
+                <!-- Nachname -->
+                <div class="mb-3 row">
+                    <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Nachname: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nachname" id="nachname">
+                    </div>
+                </div>
+                <!-- Mail Adresse -->
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="mail_1" id="mail_1" placeholder="name@example.com">
+                </div>
+                <!-- Mail Adresse wiederholen -->
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address wiederholen</label>
+                    <input type="email" class="form-control" name="mail_2" id="mail_2" placeholder="name@example.com">
+                </div>
+                <!-- Geburtstag -->
+                <div class="mb-3 row">
+                    <label for="exampleFormControlInput1" class="col-sm-2 col-form-label">Geburtstag: </label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" name="geburtsdatum" id="geburtsdatum">
+                    </div>
+                </div>
+                <!-- PLZ des Wohnortes -->
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">PLZ des Wohnortes:</label>
+                    <input type="number" class="form-control" name="plz" id="plz">
+                </div>
 
-        <h1 class="ueberschrift1">Privatbank Mustermann</h1>
-
-        <h2 class="ueberschrift2">Die Privatbank für Ihre Finanzen</h2>
-
-        <h3 class="ueberschrift3">Registrierung</h3>
-
-        <hr/>
-
-        <h2 class="angebot">Bitte Felder ausfüllen</h2>
-
-        <form name="formular" onsubmit="return check;" >
-            <p style="width: 100%;text-align: left;">
-                Anrede:
-                <input type="radio" name="gender" id="gender" value="male"> Mann
-                <input type="radio" name="gender" id="gender" value="female"> Frau
-                <input type="radio" name="gender" id="gender" value="diverse"> Diverse
-            </p>
-
-            <p style="width: 100%;text-align: left;">Vorname: <br/>
-                <input style="width: 100%" name="vorname" id="vorname"/>
-            </p>
-
-            <p style="width: 100%;text-align: left;">Nachname: <br/>
-                <input style="width: 100%" name="nachname" id="nachname"/>
-            </p>
                 
-            <p style="width: 100%;text-align: left;">
-                E-Mail: <br/>
-                <input style="width: 100%" type="mail" name="mail_1" id="mail_1"/>
-            </p>
-
-            <p style="width: 100%;text-align: left;">
-                E-Mail wiederholen: <br/>
-                <input style="width: 100%" type="email" name="mail_2" id="mail_2"/>
-            </p>
-
-            <p style="width: 100%;text-align: left;">
-                Geben Sie Ihr Geburtsdatum und -Uhrzeit ein: <br/>
-                <input type="date" name="geburtsdatum">
-            </p>
-    
-            <p style="width: 100%;text-align: left;">PLZ des Wohnorts: <br/>
-                <input style="width: 100%" type="number" name="plz" id="plz"/>
-            </p>
-            
-            <p style="width: 100%;text-align: left;">
-                <button type="submit" name="submit">Registrierung</button>
-            </p> 
-        </form>
-
-        <hr>
-
-        <p class="unten"><a href="index.html">Startseite</a> - <a href="#">Kontakt</a> - <a href="#">Anfahrt</a> - <a href="#">Impressum</a></p>
-
+                <div class="mb-3">
+                    <button type="submit" name="submit" class="btn btn-primary mb-3">Registrierung</button>
+                </div>
+            </form>
         </div>
         
+        <!-- Script Imports -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
     </body>
 
 </html>
