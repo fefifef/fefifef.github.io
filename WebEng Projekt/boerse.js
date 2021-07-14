@@ -73,7 +73,7 @@ function start()
 
     ctx.beginPath();
     ctx.moveTo(posX, posY);
-    interval = setInterval(updateKurs, 500);
+    interval = setInterval(updateKurs, 100);
 }
 function kauf_aktie()
 { 
@@ -118,10 +118,19 @@ function getRandomInt(max)
 let anzHintereinadnerUp;
 let anzHintereinadnerDown;
 let upOrDown;
+//Fehlt noch das nach 3 mal wahrscheinlihckeit sich ändert
+//Preis nochmal anschauen!!
 function updateKurs()
 {
-
     let veraenderung = getRandomInt(9)+1;
+    if(restzeit == 0)
+    {
+        clearInterval(interval);
+        return;
+    }
+    restzeit--;
+    anzeige_restzeit.textContent = restzeit;
+
     posX += 5;
     switch(getRandomInt(3))
     {
@@ -160,6 +169,6 @@ function updateKurs()
     preis_aktie = posY/10;
     anzeige_aktienKurs.textContent = preis_aktie.toFixed(2);
     console.log("POSX: " + posX + "| POSY: " + posY);
-    ctx.moveTo(posX,posY);
+    ctx.lineTo(posX,posY);
     ctx.stroke();
 }
