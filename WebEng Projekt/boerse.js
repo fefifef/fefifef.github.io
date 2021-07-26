@@ -30,7 +30,7 @@ function init()
     anz__aktien = 0;
     
     posX = 0;
-    posY = 1000;
+    posY = 500;
     anzHintereinadnerUp = 0;
     anzHintereinadnerDown = 0;
 
@@ -73,7 +73,7 @@ function start()
 
     ctx.beginPath();
     ctx.moveTo(posX, posY);
-    interval = setInterval(updateKurs, 100);
+    interval = setInterval(updateKurs, 10);
 }
 function kauf_aktie()
 { 
@@ -117,12 +117,19 @@ function getRandomInt(max)
 
 let anzHintereinadnerUp;
 let anzHintereinadnerDown;
-let upOrDown;
+
 //Fehlt noch das nach 3 mal wahrscheinlihckeit sich ändert
-//Preis nochmal anschauen!!
 function updateKurs()
-{
+{    
+    /*
+    upOrDown == 0 --> Up
+    upOrDown == 1 --> Stay
+    upOrDown == 2 --> Down
+    */
+    let upOrDown;
     let veraenderung = getRandomInt(9)+1;
+
+    //------------------------- 5 Minuten lang -------------------------
     if(restzeit == 0)
     {
         clearInterval(interval);
@@ -130,45 +137,99 @@ function updateKurs()
     }
     restzeit--;
     anzeige_restzeit.textContent = restzeit;
-
-    posX += 5;
-    switch(getRandomInt(3))
+    //------------------------- 5 Minuten lang -------------------------
+    
+    //------------------------- Preis und Bewegung berechnen -------------------------
+    if(anzHintereinadnerDown == 3)
     {
-        case 0:
-            upOrDown = "up";
-            anzHintereinadnerUp++;
-            anzHintereinadnerDown = 0;
-            if(posY - veraenderung < 0)
-            {
-                posY = 0;
-            }
-            else
-            {
+        upOrDown = getRandomInt(5);
+        switch(upOrDown)
+        {
+            case 0,1,2:
+                    preis_aktie -= veraenderung/10;
+                    posY += veraenderung;
+                break;
+            case 3:
+                anzHintereinadnerUp = 0;
+                anzHintereinadnerDown = 0;
+                break;
+            case 4:
+                anzHintereinadnerUp = 0;
+                anzHintereinadnerDown = 0;
+                preis_aktie += veraenderung/10;
                 posY -= veraenderung;
-            }
-            break;
-        case 1:
-            upOrDown = "down";
-            anzHintereinadnerDown++;
-            anzHintereinadnerUp = 0;
-            if(posY + veraenderung > 2000)
+                break;    
+        }
+    }else
+    {
+        if(anzHintereinadnerUp == 3)
+        {
+            upOrDown = getRandomInt(5);
+            switch(upOrDown)
             {
-                posY = 0;
+                case 0,1,2:
+                        preis_aktie += veraenderung/10;
+                        posY -= veraenderung;
+                    break;
+                case 3:
+                    anzHintereinadnerUp = 0;
+                    anzHintereinadnerDown = 0;
+                    break;
+                case 4:
+                    anzHintereinadnerUp = 0;
+                    anzHintereinadnerDown = 0;
+                    preis_aktie -= veraenderung/10;
+                    posY += veraenderung;
+                    break;    
             }
-            else
+        }
+        else
+        {
+            upOrDown = getRandomInt(3);
+            switch(upOrDown)
             {
-                posY += veraenderung;
+                case 0:
+                    anzHintereinadnerUp++;
+                    anzHintereinadnerDown = 0;
+                    preis_aktie += veraenderung/10;
+                    posY -= veraenderung;
+                    break;
+                case 1:
+                    anzHintereinadnerUp = 0;
+                    anzHintereinadnerDown = 0;
+                    break;
+                case 2:
+                    anzHintereinadnerUp = 0;
+                    anzHintereinadnerDown++;
+                    preis_aktie -= veraenderung/10;
+                    posY += veraenderung;
+                    break;
             }
-            break;
-        case 2:
-            upOrDown = "stay";
-            anzHintereinadnerUp = 0;
-            anzHintereinadnerDown = 0;
-            break;
+        }
     }
-    preis_aktie = posY/10;
-    anzeige_aktienKurs.textContent = preis_aktie.toFixed(2);
-    console.log("POSX: " + posX + "| POSY: " + posY);
-    ctx.lineTo(posX,posY);
-    ctx.stroke();
+    posX += 5;
+
+    if(posX == 1000)
+    {
+        ctx.beginPath();
+
+        posX = 0;
+        ctx.moveTo(posX,posY);
+
+        ctx.beginPath();
+        ctx.rect(0, 0, 1000, 1000);
+        ctx.fillStyle = "#aaaaaa";
+        ctx.fill();
+        ctx.beginPath();
+    }
+    else
+    {
+        anzeige_aktienKurs.textContent = preis_aktie.toFixed(2);
+        console.log("POSX: " + posX + "| POSY: " + posY);
+        ctx.lineTo(posX,posY);
+        ctx.stroke();
+    }
+    //-------------------------  -------------------------  
+
+    
 }

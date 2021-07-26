@@ -1,5 +1,3 @@
-"use strict";
-
 function init()
 {
     document.formular.addEventListener("submit",function (e){return check(e)});
@@ -22,7 +20,6 @@ function check(evt)
     let fehler = "";
     //--------------------> Border zuruecksetzen <--------------------
     border_setback();
-    
     
     //--------------------> Anrede überprüfen <--------------------
     if(document.formular.gender.value == "")
@@ -131,8 +128,9 @@ function check(evt)
     //--------------------> Schauen ob es Fehler gibt <--------------------
     if(fehler != "")
     {
-        alert(fehler);
+        document.getElementById("fehler_text").innerText = fehler;
+        $("#modalErfolgreich").modal("show");
         evt.preventDefault();
-    }
+    }    
     return;
 }
