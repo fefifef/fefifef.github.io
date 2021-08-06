@@ -73,7 +73,7 @@ function start()
 
     ctx.beginPath();
     ctx.moveTo(posX, posY);
-    interval = setInterval(updateKurs, 10);
+    interval = setInterval(updateKurs, 1000);
 }
 function kauf_aktie()
 { 
@@ -133,6 +133,7 @@ function updateKurs()
     if(restzeit == 0)
     {
         clearInterval(interval);
+        endMessage()
         return;
     }
     restzeit--;
@@ -230,6 +231,10 @@ function updateKurs()
         ctx.stroke();
     }
     //-------------------------  -------------------------  
+}
 
-    
+function endMessage()
+{
+    console.log("End Message wird geöffnet");
+    $("#modalEnde").modal("show");
 }

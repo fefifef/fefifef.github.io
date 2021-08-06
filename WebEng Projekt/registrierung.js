@@ -128,9 +128,15 @@ function check(evt)
     //--------------------> Schauen ob es Fehler gibt <--------------------
     if(fehler != "")
     {
+        console.log("Fehler Entdeckt:");
+        console.log(fehler);
         document.getElementById("fehler_text").innerText = fehler;
-        $("#modalErfolgreich").modal("show");
+        $("#modalFehler").modal("show");
         evt.preventDefault();
-    }    
+    }
+    else
+    {
+        window.open("./erfRegistrierung.html","_blank");
+    }
     return;
 }
