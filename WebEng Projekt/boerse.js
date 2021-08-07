@@ -20,6 +20,9 @@ let anzeige_aktienKurs;
 let anzeige_anzAktien;
 let anzeige_restzeit;
 
+let anzHintereinadnerUp;
+let anzHintereinadnerDown;
+
 window.addEventListener("load", init);
 
 function init()
@@ -115,10 +118,8 @@ function getRandomInt(max)
 }
 
 
-let anzHintereinadnerUp;
-let anzHintereinadnerDown;
 
-//Fehlt noch das nach 3 mal wahrscheinlihckeit sich ändert
+
 function updateKurs()
 {    
     /*
@@ -146,15 +147,15 @@ function updateKurs()
         upOrDown = getRandomInt(5);
         switch(upOrDown)
         {
-            case 0,1,2:
-                    preis_aktie -= veraenderung/10;
+            case 0,1,2: //Sinkt
+                    preis_aktie -= veraenderung / 10;
                     posY += veraenderung;
                 break;
-            case 3:
+            case 3: //Bleibt gleich
                 anzHintereinadnerUp = 0;
                 anzHintereinadnerDown = 0;
                 break;
-            case 4:
+            case 4: //Steigt
                 anzHintereinadnerUp = 0;
                 anzHintereinadnerDown = 0;
                 preis_aktie += veraenderung/10;
@@ -168,18 +169,18 @@ function updateKurs()
             upOrDown = getRandomInt(5);
             switch(upOrDown)
             {
-                case 0,1,2:
-                        preis_aktie += veraenderung/10;
+                case 0,1,2: //Steigt
+                        preis_aktie += veraenderung / 10;
                         posY -= veraenderung;
                     break;
-                case 3:
+                case 3: //Bleibt gleich
                     anzHintereinadnerUp = 0;
                     anzHintereinadnerDown = 0;
                     break;
-                case 4:
+                case 4: //Sinkt
                     anzHintereinadnerUp = 0;
                     anzHintereinadnerDown = 0;
-                    preis_aktie -= veraenderung/10;
+                    preis_aktie -= veraenderung / 10;
                     posY += veraenderung;
                     break;    
             }
@@ -189,20 +190,20 @@ function updateKurs()
             upOrDown = getRandomInt(3);
             switch(upOrDown)
             {
-                case 0:
+                case 0: //Steigt
                     anzHintereinadnerUp++;
                     anzHintereinadnerDown = 0;
-                    preis_aktie += veraenderung/10;
+                    preis_aktie += veraenderung / 10;
                     posY -= veraenderung;
                     break;
-                case 1:
+                case 1: //Bleibt gleich
                     anzHintereinadnerUp = 0;
                     anzHintereinadnerDown = 0;
                     break;
-                case 2:
+                case 2: //Sinkt
                     anzHintereinadnerUp = 0;
                     anzHintereinadnerDown++;
-                    preis_aktie -= veraenderung/10;
+                    preis_aktie -= veraenderung / 10;
                     posY += veraenderung;
                     break;
             }
