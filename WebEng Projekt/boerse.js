@@ -6,6 +6,7 @@ let preis_aktie;
 let anz__aktien;
 let restzeit;
 let interval;
+let interval_zeit;
 
 let posX;
 let posY;
@@ -68,6 +69,7 @@ function init()
 function start()
 {
     console.log("start Boersenspiel");
+    
     button_kauf.disabled = false;
     button_verkauf_one.disabled = false;
     button_verkauf_all.disabled = false;
@@ -76,7 +78,8 @@ function start()
 
     ctx.beginPath();
     ctx.moveTo(posX, posY);
-    interval = setInterval(updateKurs, 1000);
+    interval = setInterval(updateKurs, 50);
+    interval_zeit = setInterval(updateTime, 1000);
 }
 function kauf_aktie()
 { 
@@ -118,27 +121,33 @@ function getRandomInt(max)
 }
 
 
+function ende()
+{
+    clearInterval(interval);
+    clearInterval(interval_zeit);
+    endMessage()
+}
 
+function updateTime()
+{
+    restzeit--;
+    anzeige_restzeit.textContent = restzeit;
+}
 
 function updateKurs()
 {    
-    /*
-    upOrDown == 0 --> Up
-    upOrDown == 1 --> Stay
-    upOrDown == 2 --> Down
-    */
     let upOrDown;
     let veraenderung = getRandomInt(9)+1;
 
-    //------------------------- 5 Minuten lang -------------------------
+    //------------------------- 5 Minuten lang ------------------------- 
+    
+    
     if(restzeit == 0)
     {
-        clearInterval(interval);
-        endMessage()
+        ende();
         return;
     }
-    restzeit--;
-    anzeige_restzeit.textContent = restzeit;
+
     //------------------------- 5 Minuten lang -------------------------
     
     //------------------------- Preis und Bewegung berechnen -------------------------
@@ -226,11 +235,11 @@ function updateKurs()
     }
     else
     {
-        anzeige_aktienKurs.textContent = preis_aktie.toFixed(2);
-        console.log("POSX: " + posX + "| POSY: " + posY);
         ctx.lineTo(posX,posY);
         ctx.stroke();
     }
+    anzeige_aktienKurs.textContent = preis_aktie.toFixed(2);
+    console.log("POSX: " + posX + "| POSY: " + posY);
     //-------------------------  -------------------------  
 }
 
