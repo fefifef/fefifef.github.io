@@ -136,7 +136,7 @@ function ende()
     console.log("Ende");
     clearInterval(interval);
     clearInterval(interval_zeit);
-    endMessage()
+    endMessage();
 }
 function updateTime()
 {
