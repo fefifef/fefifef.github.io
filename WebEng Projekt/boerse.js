@@ -153,7 +153,29 @@ function setNotVisible(object)
     object.classList.add("display_none");
     object.classList.remove("display_true");
 }
+function endMessage()
+{
+    console.log("End Message wird geöffnet");
+    let message = "Dein EndKontostand beträgt: " + kontostand.toFixed(2) + " <br/>";
 
+    if(kontostand >= 10000.00)
+    {
+        message = message + "Damit hast du " + (kontostand - 10000).toFixed(2) + " Gewinn gemacht. <br/>";
+    }
+    else
+    {
+        message = message + "Damit hast du " + -(kontostand - 10000).toFixed(2) + "verlust gemacht. <br/>";
+    }
+
+    if(anz__aktien > 0)
+    {
+        message = message + "Du hast aber noch " + anz__aktien.toFixed(2) + " Aktien im Wert von " + preis_aktie.toFixed(2) + " Euro";
+    }
+    document.getElementById("body_text").innerHTML = message;
+    console.log("Message: ");
+    console.log(message);
+    $("#modalEnde").modal("show");
+}
 
 function updateKurs()
 {    
@@ -309,26 +331,3 @@ function updateKurs()
     //-------------------------  -------------------------  
 }
 
-function endMessage()
-{
-    console.log("End Message wird geöffnet");
-    let message = "Dein EndKontostand beträgt: " + kontostand.toFixed(2) + " <br/>";
-
-    if(kontostand >= 10000.00)
-    {
-        message = message + "Damit hast du " + (kontostand - 10000).toFixed(2) + " Gewinn gemacht. <br/>";
-    }
-    else
-    {
-        message = message + "Damit hast du " + -(kontostand - 10000).toFixed(2) + "verlust gemacht. <br/>";
-    }
-
-    if(anz__aktien > 0)
-    {
-        message = message + "Du hast aber noch " + anz__aktien.toFixed(2) + " Aktien im Wert von " + preis_aktie.toFixed(2) + " Euro";
-    }
-    document.getElementById("body_text").innerHTML = message;
-    console.log("Message: ");
-    console.log(message);
-    $("#modalEnde").modal("show");
-}
