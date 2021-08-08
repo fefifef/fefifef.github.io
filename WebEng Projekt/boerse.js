@@ -21,8 +21,11 @@ let anzeige_aktienKurs;
 let anzeige_anzAktien;
 let anzeige_restzeit;
 
-let anzHintereinadnerUp;
-let anzHintereinadnerDown;
+let anzHintereinanderUp;
+let anzHintereinanderDown;
+
+let signUp;
+let signDown;
 
 window.addEventListener("load", init);
 
@@ -35,8 +38,8 @@ function init()
     
     posX = 0;
     posY = 500;
-    anzHintereinadnerUp = 0;
-    anzHintereinadnerDown = 0;
+    anzHintereinanderUp = 0;
+    anzHintereinanderDown = 0;
 
     button_start = document.getElementById("button_game_start");
     button_kauf = document.getElementById("button_buy_one");
@@ -56,6 +59,9 @@ function init()
     anzeige_aktienKurs = document.getElementById("kurs_aktie");
     anzeige_anzAktien  = document.getElementById("anz_aktien");
     anzeige_restzeit   = document.getElementById("restzeit");
+
+    signUp = document.getElementById("upPicture");
+    signDown = document.getElementById("downPicture")
 
     anzeige_kontostand.textContent = kontostand;
     anzeige_aktienKurs.textContent = preis_aktie;
@@ -78,7 +84,7 @@ function start()
 
     ctx.beginPath();
     ctx.moveTo(posX, posY);
-    interval = setInterval(updateKurs, 50);
+    interval = setInterval(updateKurs, 100);
     interval_zeit = setInterval(updateTime, 1000);
 }
 function kauf_aktie()
@@ -86,6 +92,7 @@ function kauf_aktie()
 
     if((kontostand - preis_aktie) > 0)
     {
+        console.log("Aktie für " + preis_aktie + " gekauft.");
         anz__aktien++;
         kontostand = kontostand - preis_aktie;
         anzeige_kontostand.textContent = kontostand.toFixed(2);
@@ -97,6 +104,7 @@ function verkauf_aktie()
 {
     if(anz__aktien > 0)
     {
+        console.log("Aktie für " + preis_aktie + " verkauft.");
         anz__aktien--;
         kontostand = kontostand+preis_aktie;
         anzeige_kontostand.textContent = kontostand.toFixed(2);
@@ -108,6 +116,7 @@ function verkauf_aktien()
 {
     if(anz__aktien > 0)
     {
+        console.log( anz__aktien + " Aktien für insgesamt " + (preis_aktie * anz__aktien) + " verkauft.");
         kontostand = kontostand + (preis_aktie * anz__aktien);
         anz__aktien = 0;
         anzeige_kontostand.textContent = kontostand.toFixed(2);
@@ -119,20 +128,29 @@ function getRandomInt(max)
 {
     return Math.floor(Math.random() * max);
 }
-
-
 function ende()
 {
+    console.log("Ende");
     clearInterval(interval);
     clearInterval(interval_zeit);
     endMessage()
 }
-
 function updateTime()
 {
     restzeit--;
     anzeige_restzeit.textContent = restzeit;
 }
+function setVisible(object)
+{
+    object.classList.remove("display_none");
+    object.classList.add("display_true");
+}
+function setNotVisible(object)
+{
+    object.classList.add("display_none");
+    object.classList.remove("display_true");
+}
+
 
 function updateKurs()
 {    
@@ -151,73 +169,118 @@ function updateKurs()
     //------------------------- 5 Minuten lang -------------------------
     
     //------------------------- Preis und Bewegung berechnen -------------------------
-    if(anzHintereinadnerDown == 3)
+    if(anzHintereinanderDown < 3 && anzHintereinanderUp < 3)
     {
-        upOrDown = getRandomInt(5);
+        upOrDown = getRandomInt(3);
+        console.warn("Standart: " + upOrDown);
         switch(upOrDown)
-        {
-            case 0,1,2: //Sinkt
-                    preis_aktie -= veraenderung / 10;
-                    posY += veraenderung;
-                break;
-            case 3: //Bleibt gleich
-                anzHintereinadnerUp = 0;
-                anzHintereinadnerDown = 0;
-                break;
-            case 4: //Steigt
-                anzHintereinadnerUp = 0;
-                anzHintereinadnerDown = 0;
-                preis_aktie += veraenderung/10;
-                posY -= veraenderung;
-                break;    
-        }
-    }else
-    {
-        if(anzHintereinadnerUp == 3)
-        {
-            upOrDown = getRandomInt(5);
-            switch(upOrDown)
             {
-                case 0,1,2: //Steigt
+                case 0: //Steigt
+                        console.log("Steigt mit 33,3% Wahrscheinlichkeit");
+
+                        anzHintereinanderUp++;
+                        anzHintereinanderDown = 0;
+
                         preis_aktie += veraenderung / 10;
                         posY -= veraenderung;
                     break;
-                case 3: //Bleibt gleich
-                    anzHintereinadnerUp = 0;
-                    anzHintereinadnerDown = 0;
+                case 1: //Bleibt gleich
+                        console.log("Bleibt gleich mit 33,3% Wahrscheinlichkeit");
+
+                        anzHintereinanderUp = 0;
+                        anzHintereinanderDown = 0;
                     break;
-                case 4: //Sinkt
-                    anzHintereinadnerUp = 0;
-                    anzHintereinadnerDown = 0;
+                case 2: //Sinkt
+                        console.log("Sinkt mit 33,3% Wahrscheinlichkeit");
+
+                        anzHintereinanderUp = 0;
+                        anzHintereinanderDown++;
+
+                        preis_aktie -= veraenderung / 10;
+                        posY += veraenderung;
+                    break;
+            }    
+
+            setNotVisible(signDown);
+            setNotVisible(signUp);
+    }
+
+    
+    if(anzHintereinanderDown >= 3)
+    {
+        upOrDown = getRandomInt(5);
+        console.warn("Down x 3: " + upOrDown);
+        switch(upOrDown)
+        {
+            case 0: //Sinkt
+            case 1:
+            case 2:
+                    setVisible(signDown);
+
                     preis_aktie -= veraenderung / 10;
                     posY += veraenderung;
-                    break;    
-            }
+
+                    console.log("Sinkt mit 60% Wahrscheinlichkeit");
+                break;
+            case 3: //Bleibt gleich
+                    setNotVisible(signDown);
+
+                    anzHintereinanderUp = 0;
+                    anzHintereinanderDown = 0;
+
+                    console.log("Bleibt gleich mit 20% Wahrscheinlichkeit");
+                break;
+            case 4: //Steigt
+                    setNotVisible(signDown);
+
+                    anzHintereinanderUp = 0;
+                    anzHintereinanderUp++;
+                    anzHintereinanderDown = 0;
+
+                    preis_aktie += veraenderung/10;
+                    posY -= veraenderung;
+                    console.log("Steigt mit 20% Wahrscheinlichkeit");
+                break;    
         }
-        else
+    }
+    if(anzHintereinanderUp >= 3)
         {
-            upOrDown = getRandomInt(3);
+            upOrDown = getRandomInt(5);
+            console.warn("Up x 3: " + upOrDown);
             switch(upOrDown)
             {
                 case 0: //Steigt
-                    anzHintereinadnerUp++;
-                    anzHintereinadnerDown = 0;
-                    preis_aktie += veraenderung / 10;
-                    posY -= veraenderung;
+                case 1:
+                case 2:
+                        setVisible(signUp);
+
+                        preis_aktie += veraenderung / 10;
+                        posY -= veraenderung;
+                        
+                        console.log("Steigt mit 60% Wahrscheinlichkeit");
                     break;
-                case 1: //Bleibt gleich
-                    anzHintereinadnerUp = 0;
-                    anzHintereinadnerDown = 0;
+                case 3: //Bleibt gleich
+                        setNotVisible(signUp);
+
+                        anzHintereinanderUp = 0;
+                        anzHintereinanderDown = 0;
+
+                        console.log("Bleibt gleich mit 20% Wahrscheinlichkeit");
                     break;
-                case 2: //Sinkt
-                    anzHintereinadnerUp = 0;
-                    anzHintereinadnerDown++;
-                    preis_aktie -= veraenderung / 10;
-                    posY += veraenderung;
-                    break;
+                case 4: //Sinkt
+                        setNotVisible(signUp);
+
+                        anzHintereinanderUp = 0;
+                        anzHintereinanderDown = 0;
+                        anzHintereinanderDown++;
+
+                        preis_aktie -= veraenderung / 10;
+                        posY += veraenderung;
+
+                        console.log("Sinkt mit 20% Wahrscheinlichkeit");
+                    break;    
             }
         }
-    }
     posX += 5;
 
     if(posX == 1000)
