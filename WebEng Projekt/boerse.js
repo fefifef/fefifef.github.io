@@ -197,7 +197,7 @@ function updateKurs()
     if(anzHintereinanderDown < 3 && anzHintereinanderUp < 3)
     {
         upOrDown = getRandomInt(3);
-        console.warn("Standart: " + upOrDown);
+        console.log("Standart: " + upOrDown);
         switch(upOrDown)
             {
                 case 0: //Steigt
@@ -234,7 +234,7 @@ function updateKurs()
     if(anzHintereinanderDown >= 3)
     {
         upOrDown = getRandomInt(5);
-        console.warn("Down x 3: " + upOrDown);
+        console.log("Down x 3: " + upOrDown);
         switch(upOrDown)
         {
             case 0: //Sinkt
@@ -271,7 +271,7 @@ function updateKurs()
     if(anzHintereinanderUp >= 3)
         {
             upOrDown = getRandomInt(5);
-            console.warn("Up x 3: " + upOrDown);
+            console.log("Up x 3: " + upOrDown);
             switch(upOrDown)
             {
                 case 0: //Steigt
