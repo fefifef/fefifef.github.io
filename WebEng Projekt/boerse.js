@@ -1,20 +1,25 @@
 'use strict';
-let canvas;
-let ctx;
 let kontostand;
 let preis_aktie;
 let anz__aktien;
 let restzeit;
-let interval;
-let interval_zeit;
+
+let canvas;
+let ctx;
 
 let posX;
 let posY;
+
+let interval;
+let interval_zeit;
 
 let button_start;
 let button_kauf;
 let button_verkauf_one;
 let button_verkauf_all;
+
+let signUp;
+let signDown;
 
 let anzeige_kontostand;
 let anzeige_aktienKurs;
@@ -24,8 +29,7 @@ let anzeige_restzeit;
 let anzHintereinanderUp;
 let anzHintereinanderDown;
 
-let signUp;
-let signDown;
+
 
 window.addEventListener("load", init);
 
@@ -71,7 +75,6 @@ function init()
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
 }
-
 function start()
 {
     console.log("start Boersenspiel");
