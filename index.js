@@ -4,7 +4,7 @@ document.getElementById("login_web").addEventListener("click",function()
 
     if(pas == "WebEngRockt")
     {
-        window.open("./WebEng Projekt/index.html");
+        window.open("./WebEng_1/WebEng Projekt/index.html");
     }else
     {
         alert("Falsches Password");
