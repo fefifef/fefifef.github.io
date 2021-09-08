@@ -55,61 +55,75 @@
         
 		<h1 class="display-5 fw-bold">Hardware-Support</h1>
 		
+
         <p class="col-md-9 fs-4">
         <?php
-          switch(date("l"))
+          $hrsp_day = array( 
+            "1" => "Montag",
+            "2" => "Dienstag",
+            "3" => "Mittwoch",
+            "4" => "Donnerstag",
+            "5" => "Freitag");
+          $hrsp_workTime = array(
+            "1" => "8 bis 16 Uhr",
+            "2" => "8 bis 17 Uhr",
+            "3" => "8 bis 17 Uhr",
+            "4" => "8 bis 19 Uhr",
+            "5" => "8 bis 13 Uhr");
+          $hrsp_worker = array(
+            "1" => "Herr Müller",
+            "2" => "Herr Meier",
+            "3" => "Frau Unger",
+            "4" => "Herr Peters",
+            "5" => "Frau Schmid");      
+
+          $hrsp_stoptime = array(
+            "1" => 16,
+            "2" => 17,
+            "3" => 17,
+            "4" => 19,
+            "5" => 13);
+          $hrsp_hour = date('h', time());
+          $hrsp_dayNumber = date("w");
+          //Uhrzeit anzeigen
+          echo ('<p>Am heutigen <strong>' . $hrsp_day[$hrsp_dayNumber] . '</strong> erreichen Sie unsere Hardware-Support-Hotline von <strong>' . $hrsp_workTime[$hrsp_dayNumber] . '</strong>, Ihre Fragen beantwortet '. $hrsp_worker[$hrsp_dayNumber] . ' unter der Telefonnummer</p>');
+        
+          //Telefon Nummer anzeigen
+          echo("
+          <p style=\"font-size:24px\">  
+            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-6 -2 24 24\" width=\"24\" height=\"24\" preserveAspectRatio=\"xMinYMin\" class=\"icon__icon\"><path d=\"M3 0h6a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm3 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2z\"></path></svg>
+            0711 - 123 456 789
+          </p>");
+
+          
+          if($hrsp_hour < 8 || $hrsp_hour > $hrsp_stoptime[$hrsp_dayNumber])
           {
-            case "Monday":
-              $day = "Montag";
-              break;
-            case "Tuesday":
-              $day = "Dienstag";
-              break;
-            case "Wednesday":
-              $day = "Mittwoch";
-              break;
-            case "Thursday":
-              $day = "Donnerstag";
-              break;
-            case "Friday":
-              $day = "Freitag";
-              break;
-            case "Saturday":
-              $day = "Samstag";
-              break;
-            case "Sunday":
-              $day = "Sonntag";
-              break;
+            echo("
+            <p>
+              Leider können Sie uns derzeit nicht erreichen
+            </p>
+            ");
           }
 
-          $timeInterval = "";
-          $by = "";
+          echo("
+          <p>
+            <table class=\"table table-striped\">
+              <tbody>
+          ");
 
-          switch(date("w")) 
+          for($i = 1; $i <= 5; $i++)
           {
-            case 1:
-              $timeInterval = "8 bis 16 Uhr";
-              $by = "Herr Müller";
-              break;
-            case 2:
-              $timeInterval = "8 bis 17 Uhr";
-              $by = "Herr Meier";
-              break;
-            case 3:
-              $timeInterval = "8 bis 17 Uhr";
-              $by = "Frau Unger";
-              break;
-            case 4:
-              $timeInterval = "8 bis 19 Uhr";
-              $by = "Herr Peters";
-              break;
-            case 5:
-              $timeInterval = "8 bis 13 Uhr";
-              $by = "Frau Schmid";
-              break;    
+            echo("<tr>");
+              echo("<td>". $hrsp_day[$i] ."</td>");
+              echo("<td>". $hrsp_workTime[$i] ."</td>");
+              echo("<td>". $hrsp_worker[$i] . "</td>");
+            echo("</tr>");
           }
 
-          echo "Am heutigen $day erreichen Sie unsere Hardware-Support-Hotline von $timeInterval , Ihre Fragen beantwortet $by unter der Telefonnummer ...";       
+          echo("      
+              </tbody>
+            </table>
+          </p>");
         ?>
         
        
