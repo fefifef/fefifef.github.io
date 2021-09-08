@@ -95,7 +95,7 @@
             0711 - 123 456 789
           </p>");
 
-          
+          //Wenn auserhalb arbeitszeit
           if($hrsp_hour < 8 || $hrsp_hour > $hrsp_stoptime[$hrsp_dayNumber])
           {
             echo("
