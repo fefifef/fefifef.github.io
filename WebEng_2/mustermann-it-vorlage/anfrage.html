@@ -59,56 +59,62 @@
             unsere Preislisten oder erstellen Ihnen ein unverbindliches Angebot.
         </p>
         
-        <form>
+        <form method="POST" action="bestaetigung.php">
 
             <div class="mb-3">
+              <label for="" class="form-label">Anrede:</label><br/>
+              <input type="radio" name="anrede" value="Herr"> Herr<br/>
+              <input type="radio" name="anrede" value="Frau"> Frau<br/>
+              <input type="radio" name="anrede" value="Divers"> Divers<br/>
+            </div>
+            <div class="mb-3">
                 <label for="" class="form-label">Vorname:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="vorname">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Nachname:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="nachname">
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Firma:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="firma">
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">Straße:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="strassse">
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">PLZ:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="plz">
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">Ort:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control"name="ort">
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">E-Mail:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control"name="mail">
             </div>
 			
 			<div class="mb-3">
                 <label for="" class="form-label">Anzahl Mitarbeiter*innen:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="anz_mit">
             </div>			
             
           
             <div class="mb-3">
                 <label for="" class="form-label">Raum für Ihr Bemerkung:</label>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" rows="3" name="bemerkungen"></textarea>
             </div>
 
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input">
+                <input type="checkbox" class="form-check-input" name="zustimmung">
                 <label class="form-check-label" for="">Ich stimme zu, dass meine Angaben aus dem Formular 
                     zur Beantwortung der Angebots-Anfrage
                     erhoben und verarbeitet werden. Die Daten werden nach abgeschlossener Bearbeitung 
