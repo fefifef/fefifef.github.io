@@ -34,8 +34,8 @@
             Service
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Hardware-Support</a></li>
-            <li><a class="dropdown-item" href="#">Software-Support</li>
+            <li><a class="dropdown-item" href="support.php">Hardware-Support</a></li>
+            <li><a class="dropdown-item" href="support.php?thema=software">Software-Support</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Impressum</a></li>
             <li><a class="dropdown-item" href="#">Datenschutz</a></li>
@@ -58,35 +58,52 @@
 
         <p class="col-md-9 fs-4">
         <?php
-          $hrsp_day = array( 
-            "1" => "Montag",
-            "2" => "Dienstag",
-            "3" => "Mittwoch",
-            "4" => "Donnerstag",
-            "5" => "Freitag");
-          $hrsp_workTime = array(
-            "1" => "8 bis 16 Uhr",
-            "2" => "8 bis 17 Uhr",
-            "3" => "8 bis 17 Uhr",
-            "4" => "8 bis 19 Uhr",
-            "5" => "8 bis 13 Uhr");
-          $hrsp_worker = array(
-            "1" => "Herr Müller",
-            "2" => "Herr Meier",
-            "3" => "Frau Unger",
-            "4" => "Herr Peters",
-            "5" => "Frau Schmid");      
-
-          $hrsp_stoptime = array(
-            "1" => 16,
-            "2" => 17,
-            "3" => 17,
-            "4" => 19,
-            "5" => 13);
+          $work = array(
+            "1" => array(
+              "day" => "Montag",
+              "startTime" => 8,
+              "stopTime" => 16,
+              "worker" => "Herr Müller"
+            ),
+            "2" => array(
+              "day" => "Dienstag",
+              "startTime" => 8,
+              "stopTime" => 17,
+              "worker" => "Herr Meier"
+            ),
+            "3" => array(
+              "day" => "Mittwoch",
+              "startTime" => 8,
+              "stopTime" => 17,
+              "worker" => "Frau Unger"
+            ),
+            "4" => array(
+              "day" => "Donnerstag",
+              "startTime" => 8,
+              "stopTime" => 19,
+              "worker" => "Herr Peters"
+            ),
+            "5" => array(
+              "day" => "Freitag",
+              "startTime" => 8,
+              "stopTime" => 13,
+              "worker" => "Frau Schmid"
+            )
+          );
           $hrsp_hour = date('h', time());
           $hrsp_dayNumber = date("w");
+
+          if(isset($_GET['thema']) && $_GET['thema'] == "software")
+          {
+            for($i = 1; $i <= 5; $i++)
+            {
+              $work[$i]["startTime"] = 9;
+            }
+            $work[4]["worker"] = "Frau Schmid";  
+            $work[5]["worker"] = "Herr Gates";  
+          }
           //Uhrzeit anzeigen
-          echo ('<p>Am heutigen <strong>' . $hrsp_day[$hrsp_dayNumber] . '</strong> erreichen Sie unsere Hardware-Support-Hotline von <strong>' . $hrsp_workTime[$hrsp_dayNumber] . '</strong>, Ihre Fragen beantwortet '. $hrsp_worker[$hrsp_dayNumber] . ' unter der Telefonnummer</p>');
+          echo ('<p>Am heutigen <strong>' . $work[$hrsp_dayNumber]["day"] . '</strong> erreichen Sie unsere Hardware-Support-Hotline von <strong>' . $work[$hrsp_dayNumber]["startTime"] . ' bis '. $work[$hrsp_dayNumber]["stopTime"] .' Uhr</strong>, Ihre Fragen beantwortet '. $work[$hrsp_dayNumber]["worker"] . ' unter der Telefonnummer</p>');
         
           //Telefon Nummer anzeigen
           echo("
@@ -96,7 +113,7 @@
           </p>");
 
           //Wenn auserhalb arbeitszeit
-          if($hrsp_hour < 8 || $hrsp_hour > $hrsp_stoptime[$hrsp_dayNumber])
+          if($hrsp_hour < $work[$hrsp_dayNumber]["startTime"] || $hrsp_hour > $work[$hrsp_dayNumber]["stopTime"])
           {
             echo("
             <p>
@@ -105,6 +122,7 @@
             ");
           }
 
+          //Tabelle ausgeben
           echo("
           <p>
             <table class=\"table table-striped\">
@@ -113,9 +131,9 @@
             for($i = 1; $i <= 5; $i++)
             {
               echo("<tr>");
-                echo("<td>". $hrsp_day[$i] ."</td>");
-                echo("<td>". $hrsp_workTime[$i] ."</td>");
-                echo("<td>". $hrsp_worker[$i] . "</td>");
+                echo("<td>". $work[$i]["day"] ."</td>");
+                echo('<td>'. $work[$i]["startTime"] . ' bis '. $work[$i]["stopTime"] .' Uhr</td>');
+                echo("<td>". $work[$i]["worker"] . "</td>");
               echo("</tr>");
             }
           echo("      
