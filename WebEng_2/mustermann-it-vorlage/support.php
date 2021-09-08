@@ -56,10 +56,61 @@
 		<h1 class="display-5 fw-bold">Hardware-Support</h1>
 		
         <p class="col-md-9 fs-4">
-          <?php
-            echo "";
-          ?>
-        </p>
+        <?php
+          switch(date("l"))
+          {
+            case "Monday":
+              $day = "Montag";
+              break;
+            case "Tuesday":
+              $day = "Dienstag";
+              break;
+            case "Wednesday":
+              $day = "Mittwoch";
+              break;
+            case "Thursday":
+              $day = "Donnerstag";
+              break;
+            case "Friday":
+              $day = "Freitag";
+              break;
+            case "Saturday":
+              $day = "Samstag";
+              break;
+            case "Sunday":
+              $day = "Sonntag";
+              break;
+          }
+
+          $timeInterval = "";
+          $by = "";
+
+          switch(date("w")) 
+          {
+            case 1:
+              $timeInterval = "8 bis 16 Uhr";
+              $by = "Herr Müller";
+              break;
+            case 2:
+              $timeInterval = "8 bis 17 Uhr";
+              $by = "Herr Meier";
+              break;
+            case 3:
+              $timeInterval = "8 bis 17 Uhr";
+              $by = "Frau Unger";
+              break;
+            case 4:
+              $timeInterval = "8 bis 19 Uhr";
+              $by = "Herr Peters";
+              break;
+            case 5:
+              $timeInterval = "8 bis 13 Uhr";
+              $by = "Frau Schmid";
+              break;    
+          }
+
+          echo "Am heutigen $day erreichen Sie unsere Hardware-Support-Hotline von $timeInterval , Ihre Fragen beantwortet $by unter der Telefonnummer ...";       
+        ?>
         
        
 		<p class="col-md-9 fs-5">
