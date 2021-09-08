@@ -110,16 +110,14 @@
             <table class=\"table table-striped\">
               <tbody>
           ");
-
-          for($i = 1; $i <= 5; $i++)
-          {
-            echo("<tr>");
-              echo("<td>". $hrsp_day[$i] ."</td>");
-              echo("<td>". $hrsp_workTime[$i] ."</td>");
-              echo("<td>". $hrsp_worker[$i] . "</td>");
-            echo("</tr>");
-          }
-
+            for($i = 1; $i <= 5; $i++)
+            {
+              echo("<tr>");
+                echo("<td>". $hrsp_day[$i] ."</td>");
+                echo("<td>". $hrsp_workTime[$i] ."</td>");
+                echo("<td>". $hrsp_worker[$i] . "</td>");
+              echo("</tr>");
+            }
           echo("      
               </tbody>
             </table>
