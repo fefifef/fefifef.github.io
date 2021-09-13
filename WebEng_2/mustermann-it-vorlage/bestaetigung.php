@@ -58,25 +58,19 @@
         <p class="col-md-9 fs-4">Vielen dank für ihr Intresse an unseren Produkten, wir 
             senden Ihnen eine Preisliste an folgende Adresse:
             <?php
-            echo($_REQUEST['anrede']);
-            if($_REQUEST['anrede'] == "Herr")
-            {
-                echo("Herr");
-            }else
-            {
-                echo"WHEY";
-            }
-       
-                echo"<p>Vorname: {$_REQUEST['vorname']} </p>";
+                echo"<p>Anrede: {$_REQUEST['anrede']} </p>";
+                echo"<p>Vorname: {$_REQUEST['vorname']}  </p>";
                 echo"<p>Nachname: {$_REQUEST['nachname']} </p>";
+                echo"<p>Land: {$_REQUEST['land']} </p>";
                 echo"<p>Firma: {$_REQUEST['firma']} </p>";
                 echo"<p>Straße: {$_REQUEST['strassse']} </p>";
                 echo"<p>Platz: {$_REQUEST['plz']} </p>";
                 echo"<p>Ort: {$_REQUEST['ort']} </p>";
+                
             ?>
         </p>
 		
-		
+
         
       </div>
     </div>

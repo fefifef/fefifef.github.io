@@ -78,6 +78,15 @@
             </div>
 
             <div class="mb-3">
+              <label for="" class="form-label">Wo kommen sie her?</label>
+              <select name="land">
+                <option value="Deutschland">Deutschland</option>
+                <option value="Österreich">Österreich</option>
+                <option value="Schweiz">Schweiz</option>
+              </select>
+          </div>
+
+            <div class="mb-3">
                 <label for="" class="form-label">Firma:</label>
                 <input type="text" class="form-control" name="firma">
             </div>
@@ -102,7 +111,7 @@
                 <input type="text" class="form-control"name="mail">
             </div>
 			
-			<div class="mb-3">
+			      <div class="mb-3">
                 <label for="" class="form-label">Anzahl Mitarbeiter*innen:</label>
                 <input type="text" class="form-control" name="anz_mit">
             </div>			
@@ -111,6 +120,18 @@
             <div class="mb-3">
                 <label for="" class="form-label">Raum für Ihr Bemerkung:</label>
                 <textarea class="form-control" rows="3" name="bemerkungen"></textarea>
+            </div>
+            
+            <div class="mb-3">
+              <label for="" class="form-label">Für welche Produkte oder Dienstleistungen besteht Interesse?</label> <br/>
+              <input type="checkbox" name="interesseAn" value="Hardware" id="check_1">
+              <label for="check_1">Hardware</label>
+              <input type="checkbox" name="interesseAn" value="Software" id="check_2">
+              <label for="check_2">Software</label>
+              <input type="checkbox" name="interesseAn" value="Software-Support" id="check_3">
+              <label for="check_3">Software-Support</label>
+              <input type="checkbox" name="interesseAn" value="Schulungen" id="check_4">
+              <label for="check_4">Schulungen</label>
             </div>
 
             <div class="mb-3 form-check">
@@ -123,6 +144,8 @@
                     Detaillierte Informationen zum Umgang mit Nutzerdaten finden Sie in unserer 
                     <a href='#'>Datenschutzerklärung</a>.</label>
             </div>
+
+            
             
             <button type="submit" class="btn btn-primary">unverbindliche Anfrage senden</button>
 
