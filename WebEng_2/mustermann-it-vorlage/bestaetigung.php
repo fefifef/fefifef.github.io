@@ -95,8 +95,6 @@
                 if(isset($_POST["interesseAn_4"])){
                   echo $_POST["interesseAn_4"] . " wurde ausgewählt <br>";
                 }
-
-
             ?>
         </p>
 		
