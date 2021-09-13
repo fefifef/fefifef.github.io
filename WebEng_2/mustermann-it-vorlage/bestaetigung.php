@@ -58,48 +58,85 @@
         <p class="col-md-9 fs-4">Vielen dank für ihr Intresse an unseren Produkten, wir 
             senden Ihnen eine Preisliste an folgende Adresse:
             <?php
-                if(isset($_POST["anrede"])){
-                  echo "<p>Anrede: " . htmlspecialchars($_REQUEST['anrede']) . " </p>";
+              $anrede = "";
+              $vorname = "";
+              $nachname = "";
+              $land = "";
+              $firma = "";
+              $anz = "";
+              $strassse = "";
+              $plz = "";
+              $ort = "";
+              $interesseAn_1 = "";
+              $interesseAn_2 = "";
+              $interesseAn_3 = "";
+              $interesseAn_4 = "";
+              $fehler = 0;
+              if(isset($_POST["anrede"])){
+                $anrede = htmlspecialchars($_REQUEST['anrede']);
+                echo "<p>Anrede: " . $anrede . " </p>";
+              }else{
+                $fehler = 1;
+              }
+              if(isset($_POST["vorname"])){
+                $vorname = htmlspecialchars($_REQUEST['vorname']);
+                echo "<p>Vorname: " . $vorname . "  </p>";
+              }
+              if(isset($_POST["nachname"])){
+                $nachname = htmlspecialchars($_REQUEST['nachname']);
+                echo "<p>Nachname: " . $nachname . " </p>";
+              }
+              if(isset($_POST["land"])){
+                $land = htmlspecialchars($_REQUEST['land']);
+                echo "<p>Land: " . $land . " </p>";
+              }
+              if(isset($_POST["firma"])){
+                $firma = htmlspecialchars($_REQUEST['firma']);
+                echo "<p>Firma: " . $firma . " </p>";
+              }
+              if(isset($_POST["anz_mit"])){
+                $anz = preg_replace("![^0-9]!", "", htmlspecialchars($_REQUEST['anz_mit']));
+                echo "<p>Anzahl Mitarbeiter: " . $anz . " </p>";
+              }
+              if(isset($_POST["strassse"])){
+                $strassse = htmlspecialchars($_REQUEST['strassse']);
+                echo "<p>Straße: " . $strassse . " </p>";
+              }
+              if(isset($_POST["plz"])){
+                $plz = str_replace("D-","",htmlspecialchars($_REQUEST['plz']));
+                if(strlen($plz) !=5)
+                {
+                  echo "<a href='anfrage.php?anrede=$anrede'>zurück, erneut versuchen</a>";
                 }
-                if(isset($_POST["vorname"])){
-                  echo "<p>Vorname: " . htmlspecialchars($_REQUEST['vorname']) . "  </p>";
-                }
-                if(isset($_POST["nachname"])){
-                  echo "<p>Nachname: " . htmlspecialchars($_REQUEST['nachname']) . " </p>";
-                }
-                if(isset($_POST["land"])){
-                  echo "<p>Land: " . htmlspecialchars($_REQUEST['land']) . " </p>";
-                }
-                if(isset($_POST["firma"])){
-                  echo "<p>Firma: " . htmlspecialchars($_REQUEST['firma']) . " </p>";
-                }
-                if(isset($_POST["anz_mit"])){
-                  $anz = preg_replace("![^0-9]!", "", htmlspecialchars($_REQUEST['anz_mit']));
-                  echo "<p>Anzahl Mitarbeiter: " . $anz . " </p>";
-                }
-                if(isset($_POST["strasse"])){
-                  echo "<p>Straße: " . htmlspecialchars($_REQUEST['strassse']) . " </p>";
-                }
-                if(isset($_POST["plz"])){
-                  $newPLZ = str_replace("D-","",htmlspecialchars($_REQUEST['plz']));
-                  echo "<p>Platz: " . $newPLZ  . " </p>";
-                }
-                if(isset($_POST["ort"])){
-                  echo "<p>Ort: " . htmlspecialchars($_REQUEST['ort']) . " </p>";
-                }
+                echo "<p>Platz: " . $plz  . " </p>";
+              }
+              if(isset($_POST["ort"])){
+                $ort = htmlspecialchars($_REQUEST['ort']);
+                echo "<p>Ort: " . $ort . " </p>";
+              }
+              
+              if(isset($_POST["interesseAn_1"])){
+                $interesseAn_1 = $_POST["interesseAn_1"];
+                echo $interesseAn_1 . " wurde ausgewählt <br>";
+              }
+              if(isset($_POST["interesseAn_2"])){
+                $interesseAn_2 = $_POST["interesseAn_2"];
+                echo $interesseAn_2 . " wurde ausgewählt <br>";
+              }
+              if(isset($_POST["interesseAn_3"])){
+                $interesseAn_4 = $_POST["interesseAn_4"];
+                echo $interesseAn_3 . " wurde ausgewählt <br>";
+              }
+              if(isset($_POST["interesseAn_4"])){
+                $interesseAn_4 = $_POST["interesseAn_4"];
+                echo $interesseAn_4 . " wurde ausgewählt <br>";
+              }
+              
+              if($fehler == 1)
+              {
                 
-                if(isset($_POST["interesseAn_1"])){
-                  echo $_POST["interesseAn_1"] . " wurde ausgewählt <br>";
-                }
-                if(isset($_POST["interesseAn_2"])){
-                  echo $_POST["interesseAn_2"] . " wurde ausgewählt <br>";
-                }
-                if(isset($_POST["interesseAn_3"])){
-                  echo $_POST["interesseAn_3"] . " wurde ausgewählt <br>";
-                }
-                if(isset($_POST["interesseAn_4"])){
-                  echo $_POST["interesseAn_4"] . " wurde ausgewählt <br>";
-                }
+              }
+
             ?>
         </p>
 		
