@@ -59,28 +59,33 @@
             senden Ihnen eine Preisliste an folgende Adresse:
             <?php
                 if(isset($_POST["anrede"])){
-                  echo"<p>Anrede: {$_REQUEST['anrede']} </p>";
+                  echo "<p>Anrede: " . htmlspecialchars($_REQUEST['anrede']) . " </p>";
                 }
                 if(isset($_POST["vorname"])){
-                  echo"<p>Vorname: {$_REQUEST['vorname']}  </p>";
+                  echo "<p>Vorname: " . htmlspecialchars($_REQUEST['vorname']) . "  </p>";
                 }
                 if(isset($_POST["nachname"])){
-                  echo"<p>Nachname: {$_REQUEST['nachname']} </p>";
+                  echo "<p>Nachname: " . htmlspecialchars($_REQUEST['nachname']) . " </p>";
                 }
                 if(isset($_POST["land"])){
-                  echo"<p>Land: {$_REQUEST['land']} </p>";
+                  echo "<p>Land: " . htmlspecialchars($_REQUEST['land']) . " </p>";
                 }
                 if(isset($_POST["firma"])){
-                  echo"<p>Firma: {$_REQUEST['firma']} </p>";
+                  echo "<p>Firma: " . htmlspecialchars($_REQUEST['firma']) . " </p>";
+                }
+                if(isset($_POST["anz_mit"])){
+                  $anz = preg_replace("![^0-9]!", "", htmlspecialchars($_REQUEST['anz_mit']));
+                  echo "<p>Anzahl Mitarbeiter: " . $anz . " </p>";
                 }
                 if(isset($_POST["strasse"])){
-                  echo"<p>Straße: {$_REQUEST['strassse']} </p>";
+                  echo "<p>Straße: " . htmlspecialchars($_REQUEST['strassse']) . " </p>";
                 }
                 if(isset($_POST["plz"])){
-                  echo"<p>Platz: {$_REQUEST['plz']} </p>";
+                  $newPLZ = str_replace("D-","",htmlspecialchars($_REQUEST['plz']));
+                  echo "<p>Platz: " . $newPLZ  . " </p>";
                 }
                 if(isset($_POST["ort"])){
-                  echo"<p>Ort: {$_REQUEST['ort']} </p>";
+                  echo "<p>Ort: " . htmlspecialchars($_REQUEST['ort']) . " </p>";
                 }
                 
                 if(isset($_POST["interesseAn_1"])){
