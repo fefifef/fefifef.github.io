@@ -60,18 +60,27 @@
         <?php 
             
             $inhalt = file("angebotean.csv");
-            
+            echo("<p><table class=\"table table-striped\"><tbody>");
             foreach($inhalt as $value)
             {
-              while(strpos($value, ';',0))
-              {
-                $pos = strpos($value, ';',0);
-                $feld_Wert = substr($value, 0, $pos);
-                $replace = $feld_Wert + ";";
-                str_replace( $replace", "", $value);
-                echo $feld_Wert + "<br/>";
-              }
+              echo("<tr>");
+                while(strpos($value, ';',0))
+                {
+                  $pos = strpos($value, ';',0);
+                  $feld_Wert = substr($value, 0, $pos);
+                  //echo $feld_Wert . "<br>";
+                  $replace = $feld_Wert . ";";
+                  //echo $replace . "<br>";
+                  //echo "<br/>" . $value . "<br/>";
+                  $value = str_replace($replace,"", $value);
+                  //echo "<br/>" . $value . "<br/>";
+                  echo("<td>". $feld_Wert ."</td>");
+                }
+                
+                //echo $feld_Wert + "<br/>";
+              echo("</tr>");  
             }
+            echo("</tbody></table></p>");
         ?>
 
 

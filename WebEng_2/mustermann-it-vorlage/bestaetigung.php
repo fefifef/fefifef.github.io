@@ -203,7 +203,7 @@
                 else
                 {
                   $csvFile = fopen($fileName,'w');
-                  $head = ['Anrede','Vorname','Nachnmae','Land','Firma','Anzahl Mitarbeiter', 'Strassse', 'Plz', 'Ort', 'Mail', 'Bemerkungen', 'Ausgewählte Produkte'];
+                  $head = ['Anrede','Vorname','Nachname','Land','Firma','Anzahl Mitarbeiter', 'Strassse', 'Plz', 'Ort', 'Mail', 'Bemerkungen', 'Ausgewählte Produkte'];
                   fputcsv($csvFile,$head,';');
                 }
                     
