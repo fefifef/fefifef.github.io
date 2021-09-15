@@ -74,7 +74,8 @@
            $interesseAn_2 = "";
            $interesseAn_3 = "";
            $interesseAn_4 = "";
-
+           $angenommen = "";
+           
           if(isset($_GET['anrede']))
           {
             $anrede = $_GET['anrede'];
@@ -138,6 +139,10 @@
           if(isset($_GET['interesseAn_4']))
           {
             $interesseAn_4 = $_GET['interesseAn_4'];
+          }
+          if(isset($_GET['angenommen']))
+          {
+            $angenommen = $_GET['angenommen'];
           }
         ?>
 
@@ -219,7 +224,7 @@
             </div>
 
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" name="zustimmung">
+                <input type="checkbox" class="form-check-input" name="angenommen" value="angenommen" <?php if($angenommen == "angenommen"){echo"checked";}?>>
                 <label class="form-check-label" for="">Ich stimme zu, dass meine Angaben aus dem Formular 
                     zur Beantwortung der Angebots-Anfrage
                     erhoben und verarbeitet werden. Die Daten werden nach abgeschlossener Bearbeitung 

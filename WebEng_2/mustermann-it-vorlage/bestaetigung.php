@@ -74,7 +74,7 @@
               $anz_mit = "";
               $bemerkungen = "";
               $ausgewaelteProdukte = "";
-              
+              $angenommen = "";
               
               $fehler = "";
 
@@ -185,11 +185,18 @@
                 $ausgewaelteProdukte = $ausgewaelteProdukte . " " . $interesseAn_4;
                 echo $interesseAn_4 . " wurde ausgewählt <br>";
               }
+
+              if(isset($_POST['angenommen']))
+              {
+                $angenommen = $_POST['angenommen'];
+              }else{
+                $fehler = "Nicht angenommen";
+              } 
               
               if($fehler != "")
               {
                 echo"$fehler";
-                echo"<a href='http://localhost/fefifef.github.io/WebEng_2/mustermann-it-vorlage/anfrage.php?anrede=$anrede&vorname=$vorname&nachname=$nachname&land=$land&firma=$firma&anz_mit=$anz_mit&strassse=$strassse&plz=$plz&ort=$ort&mail=$mail&bemerkungen=$bemerkungen&interesseAn_1=$interesseAn_1&interesseAn_2=$interesseAn_2&interesseAn_3=$interesseAn_3&interesseAn_4=$interesseAn_4'>Korrigieren</a>";
+                echo"<a href='http://localhost/fefifef.github.io/WebEng_2/mustermann-it-vorlage/anfrage.php?anrede=$anrede&vorname=$vorname&nachname=$nachname&land=$land&firma=$firma&anz_mit=$anz_mit&strassse=$strassse&plz=$plz&ort=$ort&mail=$mail&bemerkungen=$bemerkungen&interesseAn_1=$interesseAn_1&interesseAn_2=$interesseAn_2&interesseAn_3=$interesseAn_3&interesseAn_4=$interesseAn_4&angenommen=$angenommen'>Korrigieren</a>";
               }else
               {
                 echo"Ihre Daten wurden hinterlegt sie bekommen bald ihr Angebot:";
