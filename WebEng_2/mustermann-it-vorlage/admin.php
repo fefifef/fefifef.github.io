@@ -68,16 +68,10 @@
                 {
                   $pos = strpos($value, ';',0);
                   $feld_Wert = substr($value, 0, $pos);
-                  //echo $feld_Wert . "<br>";
                   $replace = $feld_Wert . ";";
-                  //echo $replace . "<br>";
-                  //echo "<br/>" . $value . "<br/>";
                   $value = str_replace($replace,"", $value);
-                  //echo "<br/>" . $value . "<br/>";
                   echo("<td>". $feld_Wert ."</td>");
                 }
-                
-                //echo $feld_Wert + "<br/>";
               echo("</tr>");  
             }
             echo("</tbody></table></p>");
