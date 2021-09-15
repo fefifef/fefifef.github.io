@@ -63,7 +63,6 @@
               $nachname = "";
               $land = "";
               $firma = "";
-              $anz = "";
               $strassse = "";
               $plz = "";
               $ort = "";
@@ -71,70 +70,150 @@
               $interesseAn_2 = "";
               $interesseAn_3 = "";
               $interesseAn_4 = "";
-              $fehler = 0;
+              $mail = "";
+              $anz_mit = "";
+              $bemerkungen = "";
+              $ausgewaelteProdukte = "";
+              
+              
+              $fehler = "";
+
+
+
+              //Überprüfung Anrede
               if(isset($_POST["anrede"])){
                 $anrede = htmlspecialchars($_REQUEST['anrede']);
                 echo "<p>Anrede: " . $anrede . " </p>";
               }else{
-                $fehler = 1;
+                $fehler = $fehler . "Sie haben keine Anrede angegeben" . "<br/>";
               }
-              if(isset($_POST["vorname"])){
+              //Überprüfung Vorname
+              if(isset($_POST["vorname"]) && $_POST["vorname"] != ""){
                 $vorname = htmlspecialchars($_REQUEST['vorname']);
                 echo "<p>Vorname: " . $vorname . "  </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keinen Vorname angegeben" . "<br/>";
               }
-              if(isset($_POST["nachname"])){
+              //Überprüfung Nachname
+              if(isset($_POST["nachname"]) && $_POST["nachname"] != ""){
                 $nachname = htmlspecialchars($_REQUEST['nachname']);
                 echo "<p>Nachname: " . $nachname . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keinen Nachnamen angegeben" . "<br/>";
               }
-              if(isset($_POST["land"])){
+              if(isset($_POST["mail"]) && $_POST["mail"] != ""){
+                $mail = htmlspecialchars($_REQUEST['mail']);
+                echo "<p>E-Mail: " . $mail . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keine E-Mail angegeben" . "<br/>";
+              }
+              //Überprüfung Land
+              if(isset($_POST["land"]) && $_POST["land"] != ""){
                 $land = htmlspecialchars($_REQUEST['land']);
                 echo "<p>Land: " . $land . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keine Land angegeben" . "<br/>";
               }
-              if(isset($_POST["firma"])){
+              //Überprüfung Firma
+              if(isset($_POST["firma"]) && $_POST["firma"] != ""){
                 $firma = htmlspecialchars($_REQUEST['firma']);
                 echo "<p>Firma: " . $firma . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keine Firma angegeben" . "<br/>";
               }
-              if(isset($_POST["anz_mit"])){
-                $anz = preg_replace("![^0-9]!", "", htmlspecialchars($_REQUEST['anz_mit']));
-                echo "<p>Anzahl Mitarbeiter: " . $anz . " </p>";
+              //Überprüfung Anzahl Mitarbeiter
+              if(isset($_POST["anz_mit"]) && $_POST["anz_mit"] != ""){
+                $anz_mit = preg_replace("![^0-9]!", "", htmlspecialchars($_REQUEST['anz_mit']));
+                echo "<p>Anzahl Mitarbeiter: " . $anz_mit . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keine Anzahl von Mitarbeitern angegeben" . "<br/>";
               }
-              if(isset($_POST["strassse"])){
+              //Überprüfung Strassse
+              if(isset($_POST["strassse"]) && $_POST["strassse"] != ""){
                 $strassse = htmlspecialchars($_REQUEST['strassse']);
                 echo "<p>Straße: " . $strassse . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keine Straße angegeben" . "<br/>";
               }
-              if(isset($_POST["plz"])){
+              //Überprüfung PLZ
+              if(isset($_POST["plz"]) && $_POST["plz"] != ""){
                 $plz = str_replace("D-","",htmlspecialchars($_REQUEST['plz']));
                 if(strlen($plz) !=5)
                 {
-                  echo "<a href='anfrage.php?anrede=$anrede'>zurück, erneut versuchen</a>";
+                  $fehler = $fehler . "Ihr PLZ ist falsch" . "<br/>";
+                }else
+                {
+                  echo "<p>Platz: " . $plz  . " </p>";
                 }
-                echo "<p>Platz: " . $plz  . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keinen PLZ angegeben" . "<br/>";
               }
-              if(isset($_POST["ort"])){
+              //Überprüfung Ort
+              if(isset($_POST["ort"]) && $_POST["ort"] != ""){
                 $ort = htmlspecialchars($_REQUEST['ort']);
                 echo "<p>Ort: " . $ort . " </p>";
+              }else{
+                $fehler = $fehler . "Sie haben keinen Ort angegeben" . "<br/>";
+              }
+              //Überprüfung Bemerkungen
+              if(isset($_POST["bemerkungen"])){
+                $bemerkungen = htmlspecialchars($_REQUEST['bemerkungen']);
+                echo "<p>Bemerkungen: " . $bemerkungen . " </p>";
               }
               
+              //Überprüfung interessaAn_1
               if(isset($_POST["interesseAn_1"])){
                 $interesseAn_1 = $_POST["interesseAn_1"];
+                $ausgewaelteProdukte = $ausgewaelteProdukte . " " . $interesseAn_1;
                 echo $interesseAn_1 . " wurde ausgewählt <br>";
               }
+              //Überprüfung interessaAn_2
               if(isset($_POST["interesseAn_2"])){
                 $interesseAn_2 = $_POST["interesseAn_2"];
+                $ausgewaelteProdukte = $ausgewaelteProdukte . " " . $interesseAn_2;
                 echo $interesseAn_2 . " wurde ausgewählt <br>";
               }
+              //Überprüfung interessaAn_3
               if(isset($_POST["interesseAn_3"])){
-                $interesseAn_4 = $_POST["interesseAn_4"];
+                $interesseAn_3 = $_POST["interesseAn_3"];
+                $ausgewaelteProdukte = $ausgewaelteProdukte . " " . $interesseAn_3;
                 echo $interesseAn_3 . " wurde ausgewählt <br>";
               }
+              //Überprüfung interessaAn_4
               if(isset($_POST["interesseAn_4"])){
                 $interesseAn_4 = $_POST["interesseAn_4"];
+                $ausgewaelteProdukte = $ausgewaelteProdukte . " " . $interesseAn_4;
                 echo $interesseAn_4 . " wurde ausgewählt <br>";
               }
               
-              if($fehler == 1)
+              if($fehler != "")
               {
+                echo"$fehler";
+                echo"<a href='http://localhost/fefifef.github.io/WebEng_2/mustermann-it-vorlage/anfrage.php?anrede=$anrede&vorname=$vorname&nachname=$nachname&land=$land&firma=$firma&anz_mit=$anz_mit&strassse=$strassse&plz=$plz&ort=$ort&mail=$mail&bemerkungen=$bemerkungen&interesseAn_1=$interesseAn_1&interesseAn_2=$interesseAn_2&interesseAn_3=$interesseAn_3&interesseAn_4=$interesseAn_4'>Korrigieren</a>";
+              }else
+              {
+                echo"Ihre Daten wurden hinterlegt sie bekommen bald ihr Angebot:";
+
+                $fileName = 'angebotean.csv';
+
+                if(file_exists($fileName))
+                {
+                  $csvFile = fopen($fileName,'a');
+                } 
+                else
+                {
+                  $csvFile = fopen($fileName,'w');
+                  $head = ['Anrede','Vorname','Nachnmae','Land','Firma','Anzahl Mitarbeiter', 'Strassse', 'Plz', 'Ort', 'Mail', 'Bemerkungen', 'Ausgewählte Produkte'];
+                  fputcsv($csvFile,$head,';');
+                }
+                    
                 
+
+                $data = [$anrede, $vorname, $nachname, $land, $firma, $anz_mit, $strassse, $plz, $ort, $mail, $bemerkungen, $ausgewaelteProdukte];
+
+                fputcsv($csvFile,$data,';');
+
+                fclose($csvFile);
               }
 
             ?>

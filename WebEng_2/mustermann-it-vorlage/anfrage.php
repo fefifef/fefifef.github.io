@@ -58,23 +58,107 @@
             das folgende Formular für eine unverbindliche Anfrage, wir senden Ihnen umgehend
             unsere Preislisten oder erstellen Ihnen ein unverbindliches Angebot.
         </p>
-        
+        <?php
+           $anrede = "";
+           $vorname = "";
+           $nachname = "";
+           $land = "";
+           $firma = "";
+           $strassse = "";
+           $plz = "";
+           $ort = "";
+           $mail = "";
+           $anz_mit = "";
+           $bemerkungen = "";
+           $interesseAn_1 = "";
+           $interesseAn_2 = "";
+           $interesseAn_3 = "";
+           $interesseAn_4 = "";
+
+          if(isset($_GET['anrede']))
+          {
+            $anrede = $_GET['anrede'];
+          }
+          if(isset($_GET['vorname']))
+          {
+            $vorname = $_GET['vorname'];
+          }
+          if(isset($_GET['nachname']))
+          {
+            $nachname = $_GET['nachname'];
+          }
+          if(isset($_GET['land']))
+          {
+            $land = $_GET['land'];
+          }
+          if(isset($_GET['firma']))
+          {
+            $firma = $_GET['firma'];
+          }
+          if(isset($_GET['anz_mit']))
+          {
+            $anz_mit = $_GET['anz_mit'];
+          }
+          if(isset($_GET['strassse']))
+          {
+            $strassse = $_GET['strassse'];
+          }
+          if(isset($_GET['plz']))
+          {
+            $plz = $_GET['plz'];
+          }
+          if(isset($_GET['ort']))
+          {
+            $ort = $_GET['ort'];
+          }
+          if(isset($_GET['mail']))
+          {
+            $mail = $_GET['mail'];
+          }
+          if(isset($_GET['anz_mit']))
+          {
+            $anz_mit = $_GET['anz_mit'];
+          }
+          if(isset($_GET['bemerkungen']))
+          {
+            $bemerkungen = $_GET['bemerkungen'];
+          }
+          if(isset($_GET['interesseAn_1']))
+          {
+            $interesseAn_1 = $_GET['interesseAn_1'];
+          }
+          if(isset($_GET['interesseAn_2']))
+          {
+            $interesseAn_2 = $_GET['interesseAn_2'];
+          }
+          if(isset($_GET['interesseAn_3']))
+          {
+            $interesseAn_3 = $_GET['interesseAn_3'];
+          }
+          if(isset($_GET['interesseAn_4']))
+          {
+            $interesseAn_4 = $_GET['interesseAn_4'];
+          }
+        ?>
+
+
+
         <form method="POST" action="bestaetigung.php">
 
             <div class="mb-3">
               <label for="" class="form-label">Anrede:</label><br/>
-              <input type="radio" name="anrede" value="Herr"> Herr<br/>
-              <input type="radio" name="anrede" value="Frau"> Frau<br/>
-              <input type="radio" name="anrede" value="Divers"> Divers<br/>
+              <input type="radio" name="anrede" value="Herr"   <?php if($anrede == "Herr"){echo"checked";}?>> Herr<br/>
+              <input type="radio" name="anrede" value="Frau"   <?php if($anrede == "Fraur"){echo"checked";}?>> Frau<br/>
+              <input type="radio" name="anrede" value="Divers" <?php if($anrede == "Divers"){echo"checked";}?>> Divers<br/>
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Vorname:</label>
-                <input type="text" class="form-control" name="vorname">
+                <input type='text' class='form-control' name='vorname' value='<?php echo $vorname ?>'>
             </div>
 
             <div class="mb-3">
                 <label for="" class="form-label">Nachname:</label>
-                <input type="text" class="form-control" name="nachname">
+                <input type="text" class="form-control" name="nachname" value='<?php echo $nachname ?>'>
             </div>
 
             <div class="mb-3">
@@ -88,49 +172,49 @@
 
             <div class="mb-3">
                 <label for="" class="form-label">Firma:</label>
-                <input type="text" class="form-control" name="firma">
+                <input type="text" class="form-control" name="firma" value='<?php echo $firma ?>'>
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">Straße:</label>
-                <input type="text" class="form-control" name="strassse">
+                <input type="text" class="form-control" name="strassse" value='<?php echo $strassse ?>'>
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">PLZ:</label>
-                <input type="text" class="form-control" name="plz">
+                <input type="text" class="form-control" name="plz" value='<?php echo $plz ?>'>
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">Ort:</label>
-                <input type="text" class="form-control"name="ort">
+                <input type="text" class="form-control"name="ort" value='<?php echo $ort ?>'>
             </div>
             
             <div class="mb-3">
                 <label for="" class="form-label">E-Mail:</label>
-                <input type="text" class="form-control"name="mail">
+                <input type="text" class="form-control" name="mail" value='<?php echo $mail ?>'>
             </div>
 			
 			      <div class="mb-3">
                 <label for="" class="form-label">Anzahl Mitarbeiter*innen:</label>
-                <input type="text" class="form-control" name="anz_mit">
+                <input type="text" class="form-control" name="anz_mit" value='<?php echo $anz_mit ?>'>
             </div>			
             
           
             <div class="mb-3">
                 <label for="" class="form-label">Raum für Ihr Bemerkung:</label>
-                <textarea class="form-control" rows="3" name="bemerkungen"></textarea>
+                <textarea class="form-control" rows="3" name="bemerkungen"><?php echo $bemerkungen ?></textarea>
             </div>
             
             <div class="mb-3">
               <label for="" class="form-label">Für welche Produkte oder Dienstleistungen besteht Interesse?</label> <br/>
-              <input type="checkbox" name="interesseAn_1" value="Hardware" id="check_1">
+              <input type="checkbox" name="interesseAn_1" value="Hardware" id="check_1" <?php if($interesseAn_1 == "Hardware"){echo"checked";}?>>
               <label for="check_1">Hardware</label>
-              <input type="checkbox" name="interesseAn_2" value="Software" id="check_2">
+              <input type="checkbox" name="interesseAn_2" value="Software" id="check_2" <?php if($interesseAn_2 == "Software"){echo"checked";}?>>
               <label for="check_2">Software</label>
-              <input type="checkbox" name="interesseAn_3" value="Software-Support" id="check_3">
+              <input type="checkbox" name="interesseAn_3" value="Software-Support" id="check_3" <?php if($interesseAn_3 == "Software-Support"){echo"checked";}?>>
               <label for="check_3">Software-Support</label>
-              <input type="checkbox" name="interesseAn_4" value="Schulungen" id="check_4">
+              <input type="checkbox" name="interesseAn_4" value="Schulungen" id="check_4" <?php if($interesseAn_4 == "Schulung"){echo"checked";}?>>
               <label for="check_4">Schulungen</label>
             </div>
 
