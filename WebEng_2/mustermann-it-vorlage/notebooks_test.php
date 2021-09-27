@@ -9,6 +9,7 @@
 
 <body>
     <?php
+    require("functions/berechneBruttPreis.php");
       $laptops = array(
         "1" => array(
           "model" => "Surface Pro (12,3 Zoll)",
@@ -94,7 +95,7 @@
                 echo("<td>". $laptops[$i]["model"] ."</td>");
                 echo("<td>". $laptops[$i]["preis_netto"] ." Euro</td>");
                 echo("<td> <strong>". number_format(berechneBruttPreis($laptops[$i]["preis_netto"]),2,",",".") ." Euro </strong> </td>");
-                echo("<td> <strong>". number_format(berechneBruttPreis($laptops[$i]["preis_netto"],16),2,",",".") ." Euro </strong> </td>");
+                echo("<td> <strong>". number_format(berechneBruttPreis($laptops[$i]["preis_netto"]),2,",",".") ." Euro </strong> </td>");
               echo("</tr>");
             }
           echo("      
@@ -102,13 +103,11 @@
             </table>
           </p>"); 
 
+          echo"<br/>";
+          echo"Die Funktion berechneBruttoPreis wurde " . $aufrufe . " mal  Aufgerufen.";
 
 
-          function berechneBruttPreis(float $einzelpreis, $UmSt = 19) : float
-          {
-            $ergebnis = floatval($einzelpreis) * (1 + $UmSt/100);
-            return $ergebnis;
-          }
+          
         ?>
 		
 		<p class="col-md-9 fs-5">
