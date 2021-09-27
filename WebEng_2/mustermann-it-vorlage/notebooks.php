@@ -8,7 +8,22 @@
   </head>
 
 <body>
-    
+    <?php
+      $laptops = array(
+        "1" => array(
+          "model" => "Surface Pro (12,3 Zoll)",
+          "preis_netto" => 19.8,
+        ),
+        "2" => array(
+          "model" => "Surface Laptop (13,5 Zoll)",
+          "preis_netto" => 29,
+        ),
+        "3" => array(
+          "model" => "Mac Book Pro (13 Zoll",
+          "preis_netto" => 34.99,
+        )
+      );
+    ?>
 <main>
   <div class="container py-4">
     
@@ -53,96 +68,48 @@
     <div class="p-4 mb-4 mt-4 bg-white rounded-3 border border-ligh">
       <div class="container-fluid py-5">
         
-		<h1 class="display-5 fw-bold">Hardware-Support</h1>
+		<h1 class="display-5 fw-bold">Leih-Notebooks</h1>
 		
-
         <p class="col-md-9 fs-4">
-        <?php
-          $work = array(
-            "1" => array(
-              "day" => "Montag",
-              "startTime" => 8,
-              "stopTime" => 16,
-              "worker" => "Herr Müller"
-            ),
-            "2" => array(
-              "day" => "Dienstag",
-              "startTime" => 8,
-              "stopTime" => 17,
-              "worker" => "Herr Meier"
-            ),
-            "3" => array(
-              "day" => "Mittwoch",
-              "startTime" => 8,
-              "stopTime" => 17,
-              "worker" => "Frau Unger"
-            ),
-            "4" => array(
-              "day" => "Donnerstag",
-              "startTime" => 8,
-              "stopTime" => 19,
-              "worker" => "Herr Peters"
-            ),
-            "5" => array(
-              "day" => "Freitag",
-              "startTime" => 8,
-              "stopTime" => 13,
-              "worker" => "Frau Schmid"
-            )
-          );
-          $hrsp_hour = date('h', time());
-          $hrsp_dayNumber = date("w");
-
-          if(isset($_GET['thema']) && $_GET['thema'] == "software")
-          {
-            for($i = 1; $i <= 5; $i++)
-            {
-              $work[$i]["startTime"] = 9;
-            }
-            $work[4]["worker"] = "Frau Schmid";  
-            $work[5]["worker"] = "Herr Gates";  
-          }
-          //Uhrzeit anzeigen
-          echo ('<p>Am heutigen <strong>' . $work[$hrsp_dayNumber]["day"] . '</strong> erreichen Sie unsere Hardware-Support-Hotline von <strong>' . $work[$hrsp_dayNumber]["startTime"] . ' bis '. $work[$hrsp_dayNumber]["stopTime"] .' Uhr</strong>, Ihre Fragen beantwortet '. $work[$hrsp_dayNumber]["worker"] . ' unter der Telefonnummer</p>');
+          Sie benötigen Notebooks für ihre Schulung, Veranstaltung oder als Ersatzgerät für Ihre Mitarbeiter*innen? Wir 
+          verleihen folgende Geräte (inkl. Office 365 und Win 10 Pro bzw. aktuelles Mac OS):
+        </p>
         
-          //Telefon Nummer anzeigen
-          echo("
-          <p style=\"font-size:24px\">  
-            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-6 -2 24 24\" width=\"24\" height=\"24\" preserveAspectRatio=\"xMinYMin\" class=\"icon__icon\"><path d=\"M3 0h6a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H3zm3 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2z\"></path></svg>
-            0711 - 123 456 789
-          </p>");
-
-          //Wenn auserhalb arbeitszeit
-          if($hrsp_hour < $work[$hrsp_dayNumber]["startTime"] || $hrsp_hour > $work[$hrsp_dayNumber]["stopTime"])
-          {
-            echo("
-            <p>
-              Leider können Sie uns derzeit nicht erreichen
-            </p>
-            ");
-          }
-
+        <?php
+          define("UMST", 1.19);
           //Tabelle ausgeben
           echo("
           <p>
             <table class=\"table table-striped\">
               <tbody>
+                <tr>
+                  <td> <strong> Notebook </strong> </td>
+                  <td> <strong> Tagesmietpreis <br/> (netto, zzgl. UmSt. </strong> </td>
+                  <td> <strong> Tagesmietpreis <br/> (brutto, zzgl. UmSt. </td>
+                </tr>
           ");
-            for($i = 1; $i <= sizeof($work); $i++)
+          for($i = 1; $i <= sizeof($laptops); $i++)
             {
               echo("<tr>");
-                echo("<td>". $work[$i]["day"] ."</td>");
-                echo('<td>'. $work[$i]["startTime"] . ' bis '. $work[$i]["stopTime"] .' Uhr</td>');
-                echo("<td>". $work[$i]["worker"] . "</td>");
+                echo("<td>". $laptops[$i]["model"] ."</td>");
+                echo("<td>". $laptops[$i]["preis_netto"] ." Euro</td>");
+                echo("<td> <strong>". number_format(berechneBruttPreis($laptops[$i]["preis_netto"]),2,",",".") ." Euro </strong> </td>");
               echo("</tr>");
             }
           echo("      
               </tbody>
             </table>
-          </p>");
+          </p>"); 
+
+
+
+          function berechneBruttPreis($einzelpreis)
+          {
+            $ergebnis = floatval($einzelpreis) * UMST;
+            return $ergebnis;
+          }
         ?>
-        
-       
+		
 		<p class="col-md-9 fs-5">
 			<a class="btn btn-outline-secondary" href="index.html">zurück zur Startseite</a>
 		</p>
