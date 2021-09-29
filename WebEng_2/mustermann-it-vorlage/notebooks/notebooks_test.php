@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mustermann IT-Systeme</title>
-    <link href="bootstrap5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap5.0.1/css/bootstrap.min.css" rel="stylesheet">
   </head>
 
 <body>
@@ -37,7 +37,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.html">Startseite</a>
+          <a class="nav-link" aria-current="page" href="../index.html">Startseite</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">IT-Schulungen</a>
@@ -50,8 +50,8 @@
             Service
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="support.php">Hardware-Support</a></li>
-            <li><a class="dropdown-item" href="support.php?thema=software">Software-Support</li>
+            <li><a class="dropdown-item" href="../support/support.php">Hardware-Support</a></li>
+            <li><a class="dropdown-item" href="../support/support.php?thema=software">Software-Support</li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Impressum</a></li>
             <li><a class="dropdown-item" href="#">Datenschutz</a></li>
@@ -110,10 +110,7 @@
           
         ?>
 		
-		<p class="col-md-9 fs-5">
-			<a class="btn btn-outline-secondary" href="index.html">zurück zur Startseite</a>
-		</p>
-        
+	
       </div>
     </div>
     
