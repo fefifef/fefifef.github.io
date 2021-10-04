@@ -82,62 +82,62 @@
 
               //Überprüfung Anrede
               if(isset($_POST["anrede"])){
-                $anrede = htmlspecialchars($_REQUEST['anrede']);
+                $anrede = htmlspecialchars($_REQUEST['anrede'], ENT_QUOTES);
                 echo "<p>Anrede: " . $anrede . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keine Anrede angegeben" . "<br/>";
               }
               //Überprüfung Vorname
               if(isset($_POST["vorname"]) && $_POST["vorname"] != ""){
-                $vorname = htmlspecialchars($_REQUEST['vorname']);
+                $vorname = htmlspecialchars($_REQUEST['vorname'], ENT_QUOTES);
                 echo "<p>Vorname: " . $vorname . "  </p>";
               }else{
                 $fehler = $fehler . "Sie haben keinen Vorname angegeben" . "<br/>";
               }
               //Überprüfung Nachname
               if(isset($_POST["nachname"]) && $_POST["nachname"] != ""){
-                $nachname = htmlspecialchars($_REQUEST['nachname']);
+                $nachname = htmlspecialchars($_REQUEST['nachname'], ENT_QUOTES);
                 echo "<p>Nachname: " . $nachname . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keinen Nachnamen angegeben" . "<br/>";
               }
               if(isset($_POST["mail"]) && $_POST["mail"] != ""){
-                $mail = htmlspecialchars($_REQUEST['mail']);
+                $mail = htmlspecialchars($_REQUEST['mail'], ENT_QUOTES);
                 echo "<p>E-Mail: " . $mail . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keine E-Mail angegeben" . "<br/>";
               }
               //Überprüfung Land
               if(isset($_POST["land"]) && $_POST["land"] != ""){
-                $land = htmlspecialchars($_REQUEST['land']);
+                $land = htmlspecialchars($_REQUEST['land'], ENT_QUOTES);
                 echo "<p>Land: " . $land . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keine Land angegeben" . "<br/>";
               }
               //Überprüfung Firma
               if(isset($_POST["firma"]) && $_POST["firma"] != ""){
-                $firma = htmlspecialchars($_REQUEST['firma']);
+                $firma = htmlspecialchars($_REQUEST['firma'], ENT_QUOTES);
                 echo "<p>Firma: " . $firma . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keine Firma angegeben" . "<br/>";
               }
               //Überprüfung Anzahl Mitarbeiter
               if(isset($_POST["anz_mit"]) && $_POST["anz_mit"] != ""){
-                $anz_mit = preg_replace("![^0-9]!", "", htmlspecialchars($_REQUEST['anz_mit']));
+                $anz_mit = preg_replace("![^0-9]!", "", htmlspecialchars($_REQUEST['anz_mit']), ENT_QUOTES);
                 echo "<p>Anzahl Mitarbeiter: " . $anz_mit . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keine Anzahl von Mitarbeitern angegeben" . "<br/>";
               }
               //Überprüfung Strassse
               if(isset($_POST["strassse"]) && $_POST["strassse"] != ""){
-                $strassse = htmlspecialchars($_REQUEST['strassse']);
+                $strassse = htmlspecialchars($_REQUEST['strassse'], ENT_QUOTES);
                 echo "<p>Straße: " . $strassse . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keine Straße angegeben" . "<br/>";
               }
               //Überprüfung PLZ
               if(isset($_POST["plz"]) && $_POST["plz"] != ""){
-                $plz = str_replace("D-","",htmlspecialchars($_REQUEST['plz']));
+                $plz = str_replace("D-","",htmlspecialchars($_REQUEST['plz']), ENT_QUOTES);
                 if(strlen($plz) !=5)
                 {
                   $fehler = $fehler . "Ihr PLZ ist falsch" . "<br/>";
@@ -150,14 +150,14 @@
               }
               //Überprüfung Ort
               if(isset($_POST["ort"]) && $_POST["ort"] != ""){
-                $ort = htmlspecialchars($_REQUEST['ort']);
+                $ort = htmlspecialchars($_REQUEST['ort'], ENT_QUOTES);
                 echo "<p>Ort: " . $ort . " </p>";
               }else{
                 $fehler = $fehler . "Sie haben keinen Ort angegeben" . "<br/>";
               }
               //Überprüfung Bemerkungen
               if(isset($_POST["bemerkungen"])){
-                $bemerkungen = htmlspecialchars($_REQUEST['bemerkungen']);
+                $bemerkungen = htmlspecialchars($_REQUEST['bemerkungen'], ENT_QUOTES);
                 echo "<p>Bemerkungen: " . $bemerkungen . " </p>";
               }
               
