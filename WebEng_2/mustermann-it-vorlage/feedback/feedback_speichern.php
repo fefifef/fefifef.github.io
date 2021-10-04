@@ -59,19 +59,19 @@
 
       <?php
         if(isset($_POST["name"])){
-          $name = htmlspecialchars($_REQUEST['name']);
+          $name = htmlspecialchars($_REQUEST['name'], ENT_QUOTES);
           echo "<p>Name: " . $name . " </p>";
         }
         if(isset($_POST["zufriedenheit"])){
-          $zufriedenheit = htmlspecialchars($_REQUEST['zufriedenheit']);
+          $zufriedenheit = htmlspecialchars($_REQUEST['zufriedenheit'], ENT_QUOTES);
           echo "<p>Sterne:: " . $zufriedenheit . " </p>";
         }
         if(isset($_POST["mail"])){
-          $mail = htmlspecialchars($_REQUEST['mail']);
+          $mail = htmlspecialchars($_REQUEST['mail'], ENT_QUOTES);
           echo "<p>Mail: " . $mail . " </p>";
         }
         if(isset($_POST["bemerkungen"])){
-          $bemerkungen = htmlspecialchars($_REQUEST['bemerkungen']);
+          $bemerkungen = htmlspecialchars($_REQUEST['bemerkungen'], ENT_QUOTES);
           echo "<p>Bemerkungen: " . $bemerkungen . " </p>";
         }
 
@@ -79,9 +79,6 @@
       ?>
 
      
-      <p class="col-md-9 fs-5">
-        <a class="btn btn-outline-secondary" href="index.html">zurück zur Startseite</a>
-      </p>
         
       </div>
     </div>

@@ -77,21 +77,21 @@
               if($wahl == 0)
               {
                 echo "<h1>Alle Feedbacks</h1>";
-                $sql = "SELECT note,name,bewertung,mail,beitragsdatum FROM feedback";
+                $sql = "SELECT note,name,bewertung,mail,beitragsdatum FROM feedback WHERE freigegeben = 1";
               }else
               {
                 if($wahl == 1)
                 {
                   echo "<h1>Mit 4 oder mehr Sternen</h1>";
-                  $sql = "SELECT note,name,bewertung,mail,beitragsdatum FROM feedback WHERE note > 3";
+                  $sql = "SELECT note,name,bewertung,mail,beitragsdatum FROM feedback WHERE note > 3  AND freigegeben = 1";
                 }else
                 {
                   echo "<h1>Letzer Monat</h1>";
-                  $sql = "SELECT note,name,bewertung,mail,beitragsdatum FROM feedback WHERE beitragsdatum >DATE_SUB(NOW(), INTERVAL 1 MONTH)";
+                  $sql = "SELECT note,name,bewertung,mail,beitragsdatum FROM feedback WHERE beitragsdatum >DATE_SUB(NOW(), INTERVAL 1 MONTH) AND freigegeben = 1";
                 }
               }
               $result = mysqli_query($link,$sql); 
-            
+              
               while($row=mysqli_fetch_assoc($result))
               {
                 echo "Am {$row['beitragsdatum']} von {$row['name']} <br/>";
