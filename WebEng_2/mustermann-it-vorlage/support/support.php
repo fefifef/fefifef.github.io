@@ -52,8 +52,20 @@
 
     <div class="p-4 mb-4 mt-4 bg-white rounded-3 border border-ligh">
       <div class="container-fluid py-5">
-        
-		<h1 class="display-5 fw-bold">Hardware-Support</h1>
+        <?php
+          if(isset($_GET['thema']) && $_GET['thema'] == "software")
+          {
+            echo"<h1 class='display-5 fw-bold'>Software-Support</h1>";
+          }else
+          {
+            echo"<h1 class='display-5 fw-bold'>Hardware-Support</h1>";
+            if(isset($_COOKIE['notebook']) && $_COOKIE['notebook'] == 1)
+            {
+              echo "<hr>Wir bieten auch kostenlosen support für leih Laptops </hr>";
+            }
+          }
+        ?>
+		
 		
 
         <p class="col-md-9 fs-4">
@@ -140,6 +152,7 @@
               </tbody>
             </table>
           </p>");
+          
         ?>
         
       
