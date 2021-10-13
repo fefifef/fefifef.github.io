@@ -1,6 +1,4 @@
-<?php
-  setcookie("notebook",1, time()+60*60*24*30);
-?>
+<?php setcookie( "Notebooks", 1, strtotime( '+30 days' ), "/" ); ?>
 
 <!doctype html>
 <html lang="de">
@@ -63,7 +61,7 @@
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Suche" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit"><img src="bootstrap5.0.1/icons/search.svg"></button>
+        <button class="btn btn-outline-dark" type="submit"><img src="../bootstrap5.0.1/icons/search.svg"></button>
       </form>
     </div>
   </div>
@@ -116,7 +114,7 @@
         ?>
 		
 		<p class="col-md-9 fs-5">
-			<a class="btn btn-outline-secondary" href="index.html">zurück zur Startseite</a>
+			<a class="btn btn-outline-secondary" href="../index.html">zurück zur Startseite</a>
 		</p>
         
       </div>
@@ -128,6 +126,6 @@
   </div>
 </main>
 
-   <script src="bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
+   <script src="../bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
   </body>
 </html>

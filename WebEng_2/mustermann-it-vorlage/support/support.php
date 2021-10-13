@@ -44,7 +44,7 @@
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Suche" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit"><img src="bootstrap5.0.1/icons/search.svg"></button>
+        <button class="btn btn-outline-dark" type="submit"><img src="../bootstrap5.0.1/icons/search.svg"></button>
       </form>
     </div>
   </div>
@@ -59,7 +59,10 @@
           }else
           {
             echo"<h1 class='display-5 fw-bold'>Hardware-Support</h1>";
-            if(isset($_COOKIE['notebook']) && $_COOKIE['notebook'] == 1)
+            
+            
+          }
+          if(isset($_COOKIE['Notebooks']) && $_COOKIE['Notebooks'] == 1)
             {
               echo "<hr>Wir bieten auch kostenlosen support für leih Laptops </hr>";
             }
@@ -67,8 +70,6 @@
             {
               echo "LULULLULULULUL";
             }
-            
-          }
         ?>
 		
 		
@@ -171,6 +172,6 @@
   </div>
 </main>
 
-   <script src="bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
+   <script src="../bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
   </body>
 </html>
