@@ -63,6 +63,11 @@
             {
               echo "<hr>Wir bieten auch kostenlosen support für leih Laptops </hr>";
             }
+            else
+            {
+              echo "LULULLULULULUL";
+            }
+            
           }
         ?>
 		

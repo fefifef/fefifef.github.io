@@ -162,24 +162,26 @@
           <p class="col-md-9 fs-4">
             <?php
 
-              $dbh = new PDO('mysql:localhost;dbname=webeng2_1','root','')  or die("1");
               
-              $stmt = $dbh->prepare("SELECT vorname,nachname,bereich,eintrittsjahr FROM team WHERE bereich LIKE :bereich AND eintrittsjahr >= :jahr") or die("2");
 
               
 
               if(isset($_REQUEST['suche']) && isset($_REQUEST['suche_2']))
               {
+                $dbh = new PDO('mysql:host=localhost;dbname=webeng2_1','root','')  or die("1");
+              
+                $stmt = $dbh->prepare("SELECT vorname,nachname,bereich,eintrittsjahr FROM team WHERE bereich LIKE :bereich AND eintrittsjahr >= :jahr") or die("2");
+                
                 $suchwort = htmlspecialchars(($_REQUEST['suche']));
                 $suchwort_2 = htmlspecialchars(($_REQUEST['suche_2']));
 
                 
-                //$suchwort = "%" . $suchwort . "%";
+                $suchwort = "%" . $suchwort . "%";
 
                 $stmt->bindParam(':bereich', $suchwort) or die("3");
-                $stmt->bindParam(':jahr', $suchwort_2) or die("4");;
+                $stmt->bindParam(':jahr', $suchwort_2) or die("4");
 
-                $stmt->execute() or print_r($dbh->errorInfo());
+                $stmt->execute() or die("5");
                 
                 
                 while($row = $stmt->fetch())
@@ -187,7 +189,7 @@
                   echo "Vorname: " .$row['vorname'] . "<br/>";
                   echo "Nachname: " .$row['nachname'] . "<br/>";
                   echo "Bereich: " .$row['bereich'] . "<br/>";
-                  echo "Eintrittsjahr: " .$row['eintrittsjahr'] . "<br/>";
+                  echo "Eintrittsjahr: " .$row['eintrittsjahr'] . "<br/><br/>";
                 }
               }
             ?>
