@@ -3,6 +3,9 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <?php
+      require('phpFunctions/stats.php');
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mustermann IT-Systeme</title>
@@ -38,7 +41,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="../index.html">Startseite</a>
+          <a class="nav-link" aria-current="page" href="../index.php">Startseite</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">IT-Schulungen</a>
@@ -114,7 +117,7 @@
         ?>
 		
 		<p class="col-md-9 fs-5">
-			<a class="btn btn-outline-secondary" href="../index.html">zurück zur Startseite</a>
+			<a class="btn btn-outline-secondary" href="../index.php">zurück zur Startseite</a>
 		</p>
         
       </div>

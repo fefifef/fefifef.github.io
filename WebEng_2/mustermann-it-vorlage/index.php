@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <?php
+      require('phpFunctions/stats.php');
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mustermann IT-Systeme</title>
@@ -104,6 +107,12 @@
 
     <footer class="pt-3 mt-4 text-muted border-top">
       &copy; 2021 Mustermann GmbH - eine Demoseite Übungen (Modul Web-Technologien)
+      <br/>
+      <?php
+        
+        echo("Sie sind seit $zeit  Sekunden auf unserer Website und haben insgesamt $anz_Seiten Seiten aufgerfuen.");
+        echo("<br/> <br/> Zuletzt besuchte Seiten: " . $_SERVER['SCRIPT_NAME']);
+      ?>
     </footer>
   </div>
 </main>
