@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Startseite</a>
+          <a class="nav-link active" aria-current="page" href="../index.php">Startseite</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">IT-Schulungen</a>
@@ -37,24 +37,24 @@
             Service
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="support/support.php">Hardware-Support</a></li>
-            <li><a class="dropdown-item" href="support/support.php?thema=software">Software-Support</a></li>
-            <li><a class="dropdown-item" href="notebooks/notebooks.php">Notebooks-Leihen</a></li>
+            <li><a class="dropdown-item" href="../support/support.php">Hardware-Support</a></li>
+            <li><a class="dropdown-item" href="../support/support.php?thema=software">Software-Support</a></li>
+            <li><a class="dropdown-item" href="../notebooks/notebooks.php">Notebooks-Leihen</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Impressum</a></li>
             <li><a class="dropdown-item" href="#">Datenschutz</a></li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="anfragen/anfrage.php">Anfragen</a>
+          <a class="nav-link" href="../anfragen/anfrage.php">Anfragen</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Feedback
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="feedback/feedback.php">Feedback geben</a></li>
-            <li><a class="dropdown-item" href="feedback/feedback_zeigen.php">Feedback zeigen</a></li>
+            <li><a class="dropdown-item" href="../feedback/feedback.php">Feedback geben</a></li>
+            <li><a class="dropdown-item" href="../feedback/feedback_zeigen.php">Feedback zeigen</a></li>
           </ul>
         </li>
       </ul>
@@ -147,6 +147,6 @@
   </div>
 </main>
 
-   <script src="bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
+   <script src="../bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
   </body>
 </html>
