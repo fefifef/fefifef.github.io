@@ -21,6 +21,17 @@
           $_SESSION['startzeit'] = time();
           $zeit = 0;
         }
+
+        if(isset($_SESSION['page_History']))
+        {
+          $history = $_SESSION['page_History'];
+          $history[]= $_SERVER['SCRIPT_NAME'];
+          $_SESSION['page_History'] = $history;
+        }else
+        {
+          $history[0] = $_SERVER['SCRIPT_NAME'];
+          $_SESSION['page_History'] = $history;
+        }
   
         $_SESSION['anz_Seiten'] = $anz_Seiten;         
     ?>

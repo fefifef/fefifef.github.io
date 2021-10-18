@@ -236,6 +236,16 @@
     
     <footer class="pt-3 mt-4 text-muted border-top">
       &copy; 2021 Mustermann GmbH - eine Demoseite Übungen (Modul Web-Technologien)
+      <br/>
+      <?php
+        
+        echo("Sie sind seit $zeit  Sekunden auf unserer Website und haben insgesamt $anz_Seiten Seiten aufgerfuen.");
+        echo "<br/><br/>Zuletzt besuchte Seiten: <br/>";
+        foreach($history as $zeile)
+        {
+          print "<a href='$zeile'>$zeile</a> <br/>";
+        }
+      ?>
     </footer>
   </div>
 </main>

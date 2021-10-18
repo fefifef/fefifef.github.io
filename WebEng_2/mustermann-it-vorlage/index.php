@@ -111,7 +111,11 @@
       <?php
         
         echo("Sie sind seit $zeit  Sekunden auf unserer Website und haben insgesamt $anz_Seiten Seiten aufgerfuen.");
-        echo("<br/> <br/> Zuletzt besuchte Seiten: " . $_SERVER['SCRIPT_NAME']);
+        echo "<br/><br/>Zuletzt besuchte Seiten: <br/>";
+        foreach($history as $zeile)
+        {
+          print "<a href='$zeile'>$zeile</a> <br/>";
+        }
       ?>
     </footer>
   </div>
