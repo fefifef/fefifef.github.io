@@ -275,6 +275,6 @@
   </div>
 </main>
 
-   <script src="bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
+   <script src="../bootstrap5.0.1/js/bootstrap.bundle.min.js"></script>    
   </body>
 </html>
