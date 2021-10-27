@@ -40,6 +40,7 @@
             <li><a class="dropdown-item" href="support/support.php">Hardware-Support</a></li>
             <li><a class="dropdown-item" href="support/support.php?thema=software">Software-Support</a></li>
             <li><a class="dropdown-item" href="notebooks/notebooks.php">Notebooks-Leihen</a></li>
+            <li><a class="dropdown-item" href="notebooks/beamer.php">Beamer-Leihen</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Impressum</a></li>
             <li><a class="dropdown-item" href="#">Datenschutz</a></li>

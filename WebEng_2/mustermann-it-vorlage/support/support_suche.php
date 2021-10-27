@@ -177,11 +177,6 @@
           </p>
           <p class="col-md-9 fs-4">
             <?php
-
-              
-
-              
-
               if(isset($_REQUEST['suche']) && isset($_REQUEST['suche_2']))
               {
                 $dbh = new PDO('mysql:host=localhost;dbname=webeng2_1','root','')  or die("1");
