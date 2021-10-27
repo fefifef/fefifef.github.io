@@ -1,6 +1,9 @@
 <?php
 class ShopData
 {
+    public $currencySymbol = "EUR";
+    public $currencyRate = 1;
+
     private $link;
     function __construct()
     {

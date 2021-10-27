@@ -1,29 +1,26 @@
 <?php 
   class Sonderangebot extends Seite implements ISeite
   {
+
     public function output() : string
     {
       $tempSonderangebot = $this->model->getSpecialOffer();
-      $tempSonderPreis = $this->controller->calcSpecialOfferPrice($tempSonderangebot['preis']);
+      $tempSonderPreis = $this->controller->calcSpecialOfferPrice($tempSonderangebot['preis'], $this -> model -> currencyRate);
+      $title = "Sonderangebot";
+      $content_Block_1 = "Willkomen auf der Website von Mustermann IT-Service";
+      $content_Block_2 = "Sonderangebot: {$tempSonderangebot['produktname'] }
+                          zum Preis von nur {$tempSonderPreis} ". $this -> model -> currencySymbol;
+      $content_Block_3 = "";
 
-      $html="
-            <html>
-              <head>
-                <title>Sonderangebot</title>
-              </head>
-          
-              <body>
-                <h1>Mustermann IT-Service</h1>
-                <h2>Sonderangebot</h2>
-                <p>
-                  Sonderangebot: {$tempSonderangebot['produktname'] }
-                  zum Preis von nur {$tempSonderPreis} Euro
-                </p>
-                <p>Zurück zur Startseite <a href='index.php'>Startseite</a> </p>
-              </body>
-            </html>
-          ";
-      
+
+      //aktiviert die Ausgabepufferung - "echo" wird nicht ausgegeben
+      ob_start();
+      require "templates/default.php";
+      // Ausgabepuffer auslesen
+      $html = ob_get_contents();
+      //deaktiviert die Ausgabepufferung
+      ob_end_clean();
+
       return $html;
     }
   }

@@ -9,6 +9,12 @@ $model = new ShopData();
 require "classes/ShopActions.php";
 $controller = new ShopActions($model);
 
+if(isset($_REQUEST['action']))
+{
+    $action = $_REQUEST['action'];
+    $controller -> $action();
+}
+
 //"Vorlagen" für Views
 require "views/Seite.php";  // Eltern-Klasse "Seite"
 require "views/ISeite.php"; // Interface "ISeite"

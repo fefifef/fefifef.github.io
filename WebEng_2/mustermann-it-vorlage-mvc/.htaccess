@@ -1,4 +1,4 @@
-#RewriteEngine on
+RewriteEngine on
 
 #RewriteRule ^img/(.*)$ templates/img/$1
-#RewriteRule ^bootstrap5.0.1/(.*)$ templates/bootstrap5.0.1/$1
+RewriteRule ^bootstrap5.0.1/(.*)$ templates/bootstrap5.0.1/$1
