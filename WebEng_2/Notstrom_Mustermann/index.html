@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf8">
+<title>Notstrom Mustermann GmbH</title>
+<link rel="stylesheet" href="css/layout.css"/>
+</head>
+
+<body>
+    <script>
+        let request = new XMLHttpRequest();
+        function ladeKurs(){
+            request.onload = zeigeAntwort;
+            request.open('GET','kurs.php');
+            request.send();
+        }
+        function zeigeAntwort()
+        {
+            console.log('Antwort: ' + request.responseText);
+            document.getElementById("kurs").innerHTML = request.responseText;
+        }
+    </script>
+<div id='rahmen'>
+
+<h1 class="ueberschrift1">Notstrom Mustermann GmbH</h1>
+
+<h2 class="ueberschrift2">Ihr Notstromanlagen-Spezialist in Stuttgart</h2>
+
+<h3 class="ueberschrift3">Verkauf - Wartung - Planung - Service</h3>
+
+<hr/>
+
+<h2 class="angebot">Börsenkurs</h2>
+
+
+<p id="kurs"> ???</p>
+
+<p><button type="button" onclick="ladeKurs()">Kurs aktualisieren</button></p>
+
+<hr>
+
+<p class="unten"><a href="#">Kontakt</a> - <a href="#">Anfahrt</a> - <a href="#">Impressum</a></p>
+
+</div>
+
+
+</body>
+
+</html>
